@@ -1,0 +1,58 @@
+<section
+  class="feedback"
+  aria-label="Feedback fra kunder"
+>
+  <div class="feedback__inner">
+    <div class="feedback__heading">
+      <span aria-hidden="true"></span>
+      <h2>DET SIGER ANDRE</h2>
+      <span aria-hidden="true"></span>
+    </div>
+
+    <div class="feedback__carousel">
+      <button
+        class="feedback__nav feedback__nav--prev"
+        type="button"
+        aria-label="Forrige feedback"
+        (click)="prev()"
+      >
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <article
+        class="feedback__slide"
+        [class.feedback__slide--animating]="isAnimating()"
+        [class.feedback__slide--left]="animationDirection() === 'left'"
+        [class.feedback__slide--right]="animationDirection() === 'right'"
+        aria-live="polite"
+      >
+        <p class="feedback__text">{{ selectedFeedback().text }}</p>
+        <div class="feedback__meta">
+          <p class="feedback__name">{{ selectedFeedback().name }}</p>
+          <p class="feedback__role">{{ selectedFeedback().role }}</p>
+        </div>
+      </article>
+
+      <button
+        class="feedback__nav feedback__nav--next"
+        type="button"
+        aria-label="Næste feedback"
+        (click)="next()"
+      >
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="feedback__indicators">
+      <button
+        class="feedback__indicator"
+        type="button"
+        *ngFor="let slide of feedbacks(); let i = index"
+        [class.feedback__indicator--active]="currentIndex() === i"
+        [attr.aria-label]="'Gå til feedback ' + (i + 1)"
+        (click)="goTo(i)"
+      ></button>
+    </div>
+  </div>
+</section>
+

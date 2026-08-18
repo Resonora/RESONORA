@@ -1,0 +1,78 @@
+<section class="lyd-pictures" aria-labelledby="pictures-title">
+	<div class="lyd-pictures__inner">
+		<h2 id="pictures-title" class="lyd-pictures__title">Glimt fra en gruppe-lydrejse</h2>
+
+		<div class="lyd-pictures__grid">
+			@for (image of pictures; track image.id; let index = $index) {
+				<button
+					class="lyd-pictures__item"
+					(click)="openImage(index)"
+					[attr.aria-label]="'Åbn billede: ' + image.title"
+					type="button"
+				>
+					<img
+						class="lyd-pictures__image"
+						[src]="image.thumbnail"
+						[alt]="image.title"
+						loading="lazy"
+					/>
+					<div class="lyd-pictures__overlay" aria-hidden="true">
+						<span class="lyd-pictures__zoom-icon">🔍</span>
+					</div>
+				</button>
+			}
+		</div>
+	</div>
+
+	@if (selectedImageIndex() !== null) {
+		<div
+			class="lyd-pictures__modal"
+			(click)="closeModal()"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-image-title"
+		>
+			<div class="lyd-pictures__modal-content" (click)="$event.stopPropagation()">
+				<button
+					class="lyd-pictures__close-button"
+					(click)="closeModal()"
+					aria-label="Luk billede"
+					type="button"
+				>
+					✕
+				</button>
+
+				<div class="lyd-pictures__modal-image-container">
+					<img
+						class="lyd-pictures__modal-image"
+						[src]="pictures[selectedImageIndex()!].full"
+						[alt]="pictures[selectedImageIndex()!].title"
+						id="modal-image-title"
+					/>
+				</div>
+
+				<div class="lyd-pictures__modal-nav">
+					<button
+						class="lyd-pictures__nav-button lyd-pictures__nav-button--prev"
+						(click)="previousImage()"
+						aria-label="Forrige billede"
+						type="button"
+					>
+						‹
+					</button>
+					<span class="lyd-pictures__image-counter">
+						{{ selectedImageIndex()! + 1 }} / {{ pictures.length }}
+					</span>
+					<button
+						class="lyd-pictures__nav-button lyd-pictures__nav-button--next"
+						(click)="nextImage()"
+						aria-label="Næste billede"
+						type="button"
+					>
+						›
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+</section>

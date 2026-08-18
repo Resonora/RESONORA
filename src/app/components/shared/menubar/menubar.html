@@ -1,0 +1,66 @@
+<header class="menubar" [class.scrolled]="isScrolled" [class.open]="isOpen">
+	<div class="menubar__inner">
+		<div class="menubar__group menubar__group--left">
+			<a class="menubar__link" routerLink="/kropsterapi">Kropsterapi</a>
+			<span class="menubar__sep" aria-hidden="true"></span>
+			<a class="menubar__link" routerLink="/lyd">Lydrejser</a>
+			<span class="menubar__sep" aria-hidden="true"></span>
+			<a class="menubar__link" routerLink="/reiki">Reiki</a>
+			<span class="menubar__sep" aria-hidden="true"></span>
+			<a class="menubar__link" routerLink="/intuitivvejledning">Budskaber</a>
+		
+			<!-- <div class="menubar__dropdown">
+				<button class="menubar__dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+					Healing & vejledning
+				</button>
+				<div class="menubar__dropdown-menu">
+					<a class="menubar__dropdown-link" routerLink="/reiki">Healing</a>
+					<a class="menubar__dropdown-link" routerLink="/intuitivvejledning">Intuitiv vejledning</a>
+				</div>
+			</div> -->
+		</div>
+
+		<a class="menubar__logo" routerLink="/" aria-label="Gå til toppen">
+			<img class="menubar__logo-image" src="/logo3.png" alt="Resonora logo" />
+		</a>
+
+		<div class="menubar__group menubar__group--right">
+			<a
+				class="menubar__book-button"
+				type="button"
+				data-cal-link="resonora"
+				data-cal-namespace="resonora"
+				data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
+			>
+				Book mig
+			</a>
+			<span class="menubar__sep" aria-hidden="true"></span>
+			<a class="menubar__link" routerLink="/om-rebecka">Lær mig at kende</a>
+		</div>
+
+		<button class="menubar__burger" (click)="toggle()" aria-label="Åben menu" [attr.aria-expanded]="isOpen">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="menubar__mobile" [class.open]="isOpen">
+			<a class="menubar__mobile-link" routerLink="/kropsterapi" (click)="close()">Kropsterapi</a>
+			<a class="menubar__mobile-link" routerLink="/lyd" (click)="close()">Lydrejser</a>
+			<div class="menubar__mobile-group">
+				<span class="menubar__mobile-link menubar__mobile-toggle">Healing & vejledning</span>
+				<a class="menubar__mobile-link menubar__mobile-subitem" routerLink="/reiki" (click)="close()">Healing</a>
+				<a class="menubar__mobile-link menubar__mobile-subitem" routerLink="/intuitivvejledning" (click)="close()">Intuitiv vejledning</a>
+			</div>
+			<a class="menubar__mobile-link" href="#om-rebecka" (click)="close()">Om Resonora</a>
+			<a
+				class="menubar__mobile-book-button"
+				type="button"
+				data-cal-link="resonora"
+				data-cal-namespace="resonora"
+				data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
+				(click)="close()"
+			>
+				Book mig
+			</a>
+		</div>
+	</div>
+</header>

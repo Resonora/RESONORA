@@ -1,0 +1,116 @@
+.site-footer {
+    background: #647d77;
+    color: rgba(255,255,255,.92);
+
+    display: grid;
+    grid-template-columns: 1fr 90px 1fr;
+    gap: 45px;
+
+    align-items: center;
+
+    padding: 60px;
+
+    font-family: "Manrope", sans-serif;
+
+    &__newsletter {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+
+        h2{
+            margin:0 0 14px;
+
+            font-size:15px;
+            letter-spacing:.28em;
+            font-weight:700;
+        }
+
+        p{
+            margin-bottom:20px;
+            line-height:1.7;
+            font-size:14px;
+        }
+
+        a{
+            display:inline-block;
+
+            padding:12px 24px;
+
+            border-radius:999px;
+
+            background:#b9878c;
+            color:white;
+
+            text-decoration:none;
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:.08em;
+
+            transition:.25s;
+
+            &:hover{
+                background:#c9969b;
+            }
+        }
+    }
+
+    &__mail{
+        width:72px;
+    }
+
+    &__divider{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        position:relative;
+
+        &::before,
+        &::after{
+            content:"";
+            position:absolute;
+            width:1px;
+            background:rgba(255,255,255,.25);
+            top:-60px;
+            bottom:-60px;
+        }
+
+        &::before{
+            left:0;
+        }
+
+        &::after{
+            right:0;
+        }
+
+        img{
+            width:74px;
+        }
+    }
+
+    &__info{
+
+        h3{
+            font-family:"Cormorant Garamond", serif;
+            font-size:26px;
+            letter-spacing:.16em;
+            margin-bottom:18px;
+        }
+
+        p{
+            line-height:1.8;
+            font-size:14px;
+            margin-bottom:18px;
+        }
+    }
+
+    &__socials{
+
+        display:flex;
+        gap:18px;
+
+        img{
+            width:26px;
+        }
+    }
+}
