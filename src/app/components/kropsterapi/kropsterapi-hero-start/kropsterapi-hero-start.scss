@@ -30,6 +30,10 @@
     z-index: 1;
   }
 
+  &__mobile-image {
+    display: none;
+  }
+
   &__title {
     margin: 4rem 0px 0px 0px;
     font-family: 'Cormorant Garamond', serif;
@@ -137,8 +141,34 @@
   .kropsterapi-hero {
     padding: 54px 0 60px;
 
+    &__surface {
+      background-image: url('/redbg.jpg');
+      background-position: center;
+    }
+
+    &__mobile-image {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 2 / 3;
+      margin: 0 auto 28px;
+      border: 1px solid rgba(91, 75, 67, 0.16);
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(68, 55, 47, 0.12);
+      object-fit: cover;
+    }
+
     &__title {
-      font-size: clamp(32px, 8vw, 42px);
+      margin-top: 0;
+      font-size: clamp(42px, 12vw, 58px);
+      text-align: center;
+    }
+
+    &__button {
+      display: flex;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__divider {

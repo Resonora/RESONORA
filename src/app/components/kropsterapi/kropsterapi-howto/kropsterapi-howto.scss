@@ -210,6 +210,10 @@
   }
 
   .howto-step {
+    &__media {
+      display: none;
+    }
+
     &__meta {
       max-width: none;
       padding: 0 14px;
