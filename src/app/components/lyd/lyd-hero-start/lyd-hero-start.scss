@@ -55,8 +55,10 @@
     }
 
     &-icon {
-      font-size: 18px;
-      color: #7cb59f;
+      display: block;
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
     }
   }
 

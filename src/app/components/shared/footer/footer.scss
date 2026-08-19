@@ -43,6 +43,12 @@
         color: #c99f62;
         font-size: 18px;
 
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
         &::before,
         &::after {
             content: '';

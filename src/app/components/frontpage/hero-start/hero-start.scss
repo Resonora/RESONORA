@@ -81,7 +81,7 @@
   &__divider {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
     margin: 6px 0 22px;
     width: min(560px, 80%);
     justify-content: center;
@@ -89,14 +89,18 @@
     &-line {
       flex: 1 1 auto;
       height: 1px;
-      background: rgba(80, 68, 63, 0.12);
+      background: rgba(43, 41, 41, 0.155);
     }
 
     &-icon {
       color: #c9b9ad;
       font-size: 20px;
       display: inline-block;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
       transform: translateY(calc(var(--hero-divider, 1px)));
+      opacity: 0.6;
     }
   }
 
