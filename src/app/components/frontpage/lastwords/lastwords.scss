@@ -1,0 +1,122 @@
+.lastwords {
+	padding: 96px 24px;
+	background: #fef3ea;
+	color: #4d4541;
+	font-family: 'Manrope', sans-serif;
+
+	&__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+		align-items: center;
+		gap: clamp(48px, 8vw, 112px);
+		max-width: 1040px;
+		margin: 0 auto;
+	}
+
+	&__copy {
+		max-width: 560px;
+	}
+
+	h2 {
+		max-width: 520px;
+		margin: 0 0 20px;
+		color: #5a4742;
+		font-family: 'Cormorant Garamond', serif;
+		font-size: clamp(32px, 3.8vw, 46px);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		line-height: 1.02;
+	}
+
+	p {
+		max-width: 530px;
+		margin: 0 0 18px;
+		color: #5f544f;
+		font-size: 15px;
+		line-height: 1.75;
+	}
+
+	&__signature {
+		display: block;
+		width: min(170px, 55%);
+		height: auto;
+		margin: 24px 0 22px;
+	}
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		padding: 10px 20px;
+		border: 1px solid rgba(169, 124, 128, 0.7);
+		border-radius: 999px;
+		color: #8d6569;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+		transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+
+		&:hover,
+		&:focus-visible {
+			background: #a97c80;
+			color: #fff;
+			outline: none;
+			transform: translateY(-2px);
+		}
+	}
+
+	&__image-wrap {
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__image {
+		display: block;
+		width: min(100%, 360px);
+		aspect-ratio: 0.8 / 1;
+		object-fit: cover;
+		border: 1px solid rgba(91, 75, 67, 0.16);
+		border-radius: 18px;
+		box-shadow: 0 14px 34px rgba(68, 55, 47, 0.1);
+	}
+}
+
+@media (max-width: 760px) {
+	.lastwords {
+		padding: 70px 22px;
+
+		&__inner {
+			grid-template-columns: 1fr;
+			gap: 42px;
+		}
+
+		&__copy {
+			max-width: 560px;
+			margin: 0 auto;
+		}
+
+		&__image-wrap {
+			justify-content: center;
+			order: -1;
+		}
+
+		&__image {
+			width: min(100%, 320px);
+		}
+	}
+}
+
+@media (max-width: 520px) {
+	.lastwords {
+		padding: 58px 18px;
+
+		h2 {
+			font-size: 36px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}

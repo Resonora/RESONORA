@@ -1,19 +1,8 @@
-.feedback {
-  padding: 5rem 1.5rem 6rem;
-  background: #fbf8f4;
-  color: #4d4541;
-  font-family: 'Manrope', sans-serif;
-}
-
-.feedback__inner {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
 .feedback__heading {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
+  text-align: center;
   gap: 28px;
   margin-bottom: 3rem;
 }
@@ -24,6 +13,7 @@
 }
 
 .feedback__heading h2 {
+  justify-self: center;
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
   font-size: 25px;
@@ -65,8 +55,9 @@
 
 .feedback__slide {
   position: relative;
-  padding: 4rem 2.2rem 2.2rem;
-  background: url('/feedbackcardbackground.png') center/cover no-repeat, #fff7f4;
+  //padding: 4rem 2.2rem 2.2rem;
+  //background: url('/feedbackcardbackground.png') center/cover no-repeat, #fff7f4;
+  background: #fff7f4;
   border: 1px solid rgba(91, 75, 67, 0.16);
   border-radius: 2rem;
   box-shadow: 0 24px 50px rgba(84, 68, 63, 0.08);
@@ -112,17 +103,17 @@
 }
 
 .feedback__text {
-  margin: 0;
-  margin-top: 2.4rem;
+ 
   font-size: 1rem;
   line-height: 1.95;
   color: #5f544f;
   letter-spacing: -0.02em;
   padding: 0px 3rem;
+  font-style: italic;
 }
 
 .feedback__meta {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,9 +173,7 @@
 }
 
 @media (max-width: 720px) {
-  .feedback {
-    padding: 3.25rem 1rem 4rem;
-  }
+  
 
   .feedback__heading {
     gap: 16px;
@@ -197,10 +186,7 @@
     text-align: center;
   }
 
-  .feedback__slide {
-    padding: 2rem 1.5rem;
-  }
-
+ 
   .feedback__text {
     font-size: 0.98rem;
     line-height: 1.85;
