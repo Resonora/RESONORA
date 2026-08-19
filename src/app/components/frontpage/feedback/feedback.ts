@@ -53,7 +53,9 @@ export class Feedback implements OnDestroy {
   protected readonly isAnimating = signal(false);
 
   private intervalId?: number;
+  private touchStartX?: number;
   private readonly autoSlideDelay = 8000;
+  private readonly swipeThreshold = 45;
 
   protected readonly selectedFeedback = computed(
     () => this.feedbacks()[this.currentIndex()]
@@ -77,6 +79,30 @@ export class Feedback implements OnDestroy {
 
   protected resetAutoSlide() {
     this.startAutoSlide();
+  }
+
+  protected onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0]?.clientX;
+  }
+
+  protected onTouchEnd(event: TouchEvent) {
+    if (this.touchStartX === undefined) {
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0]?.clientX;
+    const distance = touchEndX === undefined ? 0 : touchEndX - this.touchStartX;
+    this.touchStartX = undefined;
+
+    if (Math.abs(distance) < this.swipeThreshold) {
+      return;
+    }
+
+    if (distance > 0) {
+      this.prev();
+    } else {
+      this.next();
+    }
   }
 
   protected prev(userInteraction = true) {

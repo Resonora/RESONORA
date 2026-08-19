@@ -111,16 +111,19 @@
 
 		&__copy {
 			max-width: 560px;
+			width: 100%;
 			margin: 0 auto;
 		}
 
 		&__image-wrap {
+			width: 100%;
 			justify-content: center;
 			order: -1;
 		}
 
 		&__image {
-			width: min(100%, 320px);
+			width: 100%;
+			max-width: none;
 		}
 	}
 }

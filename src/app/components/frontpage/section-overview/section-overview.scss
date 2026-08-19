@@ -125,10 +125,11 @@ a {
       margin-bottom: 20px;
 
       h2 {
-        font-size: 20px;
+        font-size: 30px;
         letter-spacing: 0.2em;
         white-space: normal;
         text-align: center;
+        margin-top: 20px;
       }
     }
 
@@ -281,7 +282,13 @@ a {
   .offer-cards {
     grid-template-columns: 1fr;
     justify-content: center;
-    gap: 20px;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .offer-card {
+    width: 100%;
+    max-width: none;
   }
 }
 

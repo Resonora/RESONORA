@@ -7,7 +7,11 @@
     <div class="feedback__heading">
       <h2 class="feedback__title">Ord fra jer ❤️ </h2>
     </div>
-    <div class="feedback__carousel">
+    <div
+      class="feedback__carousel"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
       <button
         class="feedback__nav feedback__nav--prev"
         type="button"

@@ -54,7 +54,7 @@
     color: #283634;
     font-weight: 500;
     /* smaller minimum so title doesn't dominate on small screens */
-    font-size: clamp(34px, 10vw, 120px);
+    font-size: clamp(34px, 9vw, 120px);
     /* increased spacing so letters breathe more */
     letter-spacing: 0.24em;
     line-height: 0.95;
@@ -229,7 +229,7 @@
     background-position: center top;
 
     &__title {
-      font-size: 36px;
+      font-size: 48px;
       letter-spacing: 0.18em;
     }
 
