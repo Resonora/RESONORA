@@ -42,14 +42,15 @@
     </div>
 
     <div class="feedback__indicators">
-      <button
-        class="feedback__indicator"
-        type="button"
-        *ngFor="let slide of feedbacks(); let i = index"
-        [class.feedback__indicator--active]="currentIndex() === i"
-        [attr.aria-label]="'Gå til feedback ' + (i + 1)"
-        (click)="goTo(i)"
-      ></button>
+      @for (feedback of feedbacks(); track $index; let index = $index) {
+        <button
+          class="feedback__indicator"
+          type="button"
+          [class.feedback__indicator--active]="currentIndex() === index"
+          [attr.aria-label]="'Gå til feedback ' + (index + 1)"
+          (click)="goTo(index)"
+        ></button>
+      }
     </div>
   </div>
 </section>
