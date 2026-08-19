@@ -49,16 +49,6 @@
     transition: transform 220ms linear;
   }
 
-  &__eyebrow {
-    margin: 0 0 12px 0;
-    color: #6d715f;
-    font-family: 'Manrope', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-
   &__title {
     margin: 0;
     color: #283634;
@@ -74,25 +64,15 @@
   }
 
   &__subtitle {
-    margin-top: 8px;
-    margin-bottom: 20px;
-
     font-family: 'Manrope', sans-serif;
-
     color: #655a55;
-
     font-size: 15px;
     font-weight: 500;
-
-    letter-spacing: 0.42em;
-    text-transform: uppercase;
   }
 
   &__heart {
     margin-bottom: 18px;
-
     color: #b6868a;
-
     font-size: 36px;
     animation: heartPulse 2.2s ease-in-out infinite;
     transform-origin: center;
@@ -165,7 +145,6 @@
   }
 
   &__tagline {
-    margin-top: 26px;
     font-family: 'Manrope', sans-serif;
     color: #6d715f;
     font-size: 14px;
