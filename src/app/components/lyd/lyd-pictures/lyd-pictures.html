@@ -1,78 +1,68 @@
-<section class="lyd-pictures" aria-labelledby="pictures-title">
-	<div class="lyd-pictures__inner">
-		<h2 id="pictures-title" class="lyd-pictures__title">Glimt fra en gruppe-lydrejse</h2>
+<section class="lyd-pictures" id="gruppe-lydrejser" aria-labelledby="pictures-title">
+  <div class="lyd-pictures__inner">
+    <div class="lyd-pictures__intro">
+      <h2 id="pictures-title" class="lyd-pictures__title">Gruppe-lydrejser</h2>
+      <p class="lyd-pictures__lead">
+        Jeg holder løbende offentlige lydrejser - følg med her på siden eller på Instagram/Facebook, hvis du vil med ✨<br>
+		
+      </p>
+    </div>
 
-		<div class="lyd-pictures__grid">
-			@for (image of pictures; track image.id; let index = $index) {
-				<button
-					class="lyd-pictures__item"
-					(click)="openImage(index)"
-					[attr.aria-label]="'Åbn billede: ' + image.title"
-					type="button"
-				>
-					<img
-						class="lyd-pictures__image"
-						[src]="image.thumbnail"
-						[alt]="image.title"
-						loading="lazy"
-					/>
-					<div class="lyd-pictures__overlay" aria-hidden="true">
-						<span class="lyd-pictures__zoom-icon">🔍</span>
-					</div>
-				</button>
-			}
-		</div>
-	</div>
+    <div class="lyd-pictures__grid">
+      @for (image of pictures; track image.id) {
+        <figure class="lyd-pictures__item">
+          <img
+            class="lyd-pictures__image"
+            [src]="image.thumbnail"
+            [alt]="image.title"
+            loading="lazy"
+          />
+        </figure>
+      }
+    </div>
 
-	@if (selectedImageIndex() !== null) {
-		<div
-			class="lyd-pictures__modal"
-			(click)="closeModal()"
-			role="dialog"
-			aria-modal="true"
-			aria-labelledby="modal-image-title"
-		>
-			<div class="lyd-pictures__modal-content" (click)="$event.stopPropagation()">
-				<button
-					class="lyd-pictures__close-button"
-					(click)="closeModal()"
-					aria-label="Luk billede"
-					type="button"
-				>
-					✕
-				</button>
+    <div class="lyd-pictures__schedule">
+      <div class="lyd-pictures__schedule-heading">
+        <h3>Kom med næste gang</h3>
+      </div>
 
-				<div class="lyd-pictures__modal-image-container">
-					<img
-						class="lyd-pictures__modal-image"
-						[src]="pictures[selectedImageIndex()!].full"
-						[alt]="pictures[selectedImageIndex()!].title"
-						id="modal-image-title"
-					/>
-				</div>
-
-				<div class="lyd-pictures__modal-nav">
-					<button
-						class="lyd-pictures__nav-button lyd-pictures__nav-button--prev"
-						(click)="previousImage()"
-						aria-label="Forrige billede"
-						type="button"
-					>
-						‹
-					</button>
-					<span class="lyd-pictures__image-counter">
-						{{ selectedImageIndex()! + 1 }} / {{ pictures.length }}
-					</span>
-					<button
-						class="lyd-pictures__nav-button lyd-pictures__nav-button--next"
-						(click)="nextImage()"
-						aria-label="Næste billede"
-						type="button"
-					>
-						›
-					</button>
-				</div>
-			</div>
-		</div>
-	}
+      <div class="lyd-pictures__events">
+        @if (loading()) {
+          <p class="lyd-pictures__status">Henter kommende datoer...</p>
+        } @else if (loadError()) {
+          <p class="lyd-pictures__status">Datoerne kunne ikke hentes lige nu. Prøv igen senere.</p>
+        } @else if (events().length === 0) {
+          <p class="lyd-pictures__status">Der er ingen kommende gruppe-lydrejser lige nu.</p>
+        } @else {
+          @for (event of events(); track event.id) {
+            <article class="lyd-pictures__event">
+              <div class="lyd-pictures__event-date">
+                <span>{{ formatMonth(event.event_date) }}</span>
+                <strong>{{ formatDay(event.event_date) }}</strong>
+              </div>
+              <div class="lyd-pictures__event-details">
+                <h4>{{ event.title }}</h4>
+                <p>{{ formatTime(event.start_time, event.end_time) }} · {{ event.city }}</p>
+              </div>
+              <div class="lyd-pictures__event-side">
+                <strong>{{ formatPrice(event.price) }}</strong>
+                @if (event.sold_out) {
+                  <span class="lyd-pictures__signup lyd-pictures__signup--sold-out">Udsolgt</span>
+                } @else {
+                  <a
+                    class="lyd-pictures__signup"
+                    [href]="event.signup_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Tilmeld
+                  </a>
+                }
+              </div>
+            </article>
+          }
+        }
+      </div>
+    </div>
+  </div>
 </section>

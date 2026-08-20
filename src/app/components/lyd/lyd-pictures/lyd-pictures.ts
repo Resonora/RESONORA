@@ -1,11 +1,29 @@
-import { Component, signal, effect } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { supabase } from '../../../core/supabase';
 
 interface Picture {
   id: number;
   title: string;
   thumbnail: string;
-  full: string;
 }
+
+interface EventRow {
+  id: number;
+  city: string;
+  event_date: string;
+  start_time: string;
+  end_time: string;
+  price: number;
+  published: boolean;
+  signup_url: string;
+  sold_out: boolean;
+  title: string;
+}
+
+const MONTHS_DA = [
+  'JAN', 'FEB', 'MAR', 'APR', 'MAJ', 'JUN',
+  'JUL', 'AUG', 'SEP', 'OKT', 'NOV', 'DEC',
+];
 
 @Component({
   selector: 'app-lyd-pictures',
@@ -13,93 +31,58 @@ interface Picture {
   templateUrl: './lyd-pictures.html',
   styleUrl: './lyd-pictures.scss',
 })
-export class LydPictures {
+export class LydPictures implements OnInit {
+  protected readonly events = signal<EventRow[]>([]);
+  protected readonly loading = signal(true);
+  protected readonly loadError = signal(false);
+
   pictures: Picture[] = [
     {
       id: 1,
       title: 'Lydrejse 1',
-      thumbnail: '/lydmini1.png',
-      full: '/lyd1.png',
+      thumbnail: '/lydmini5.png',
     },
     {
       id: 2,
       title: 'Lydrejse 2',
-      thumbnail: '/lydmini2.png',
-      full: '/lyd2.png',
+      thumbnail: '/lydmini1.png',
     },
     {
       id: 3,
       title: 'Lydrejse 3',
       thumbnail: '/lydmini3.png',
-      full: '/lyd3.png',
     },
-    {
-      id: 4,
-      title: 'Lydrejse 4',
-      thumbnail: '/lydmini4.png',
-      full: '/lyd4.png',
-    },
-    {
-      id: 5,
-      title: 'Lydrejse 5',
-      thumbnail: '/lydmini5.png',
-      full: '/lyd5.png',
-    },
-    {
-      id: 6,
-      title: 'Lydrejse 6',
-      thumbnail: '/lydmini6.png',
-      full: '/lyd6.png',
-    }
   ];
 
-  selectedImageIndex = signal<number | null>(null);
+  async ngOnInit(): Promise<void> {
+    const { data, error } = await supabase
+      .from('events')
+      .select('*')
+      .eq('published', true)
+      .order('event_date', { ascending: true });
 
-  constructor() {
-    effect(() => {
-      if (this.selectedImageIndex() === null) {
-        return;
-      }
-
-      const handleKeydown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          this.closeModal();
-        } else if (event.key === 'ArrowLeft') {
-          this.previousImage();
-        } else if (event.key === 'ArrowRight') {
-          this.nextImage();
-        }
-      };
-
-      window.addEventListener('keydown', handleKeydown);
-
-      return () => {
-        window.removeEventListener('keydown', handleKeydown);
-      };
-    });
-  }
-
-  openImage(index: number): void {
-    this.selectedImageIndex.set(index);
-  }
-
-  closeModal(): void {
-    this.selectedImageIndex.set(null);
-  }
-
-  nextImage(): void {
-    const current = this.selectedImageIndex();
-    if (current !== null) {
-      const next = (current + 1) % this.pictures.length;
-      this.selectedImageIndex.set(next);
+    if (error) {
+      this.loadError.set(true);
+    } else {
+      this.events.set(data ?? []);
     }
+
+    this.loading.set(false);
   }
 
-  previousImage(): void {
-    const current = this.selectedImageIndex();
-    if (current !== null) {
-      const prev = current === 0 ? this.pictures.length - 1 : current - 1;
-      this.selectedImageIndex.set(prev);
-    }
+  protected formatMonth(dateStr: string): string {
+    return MONTHS_DA[new Date(dateStr).getMonth()];
+  }
+
+  protected formatDay(dateStr: string): string {
+    return String(new Date(dateStr).getDate());
+  }
+
+  protected formatTime(start: string, end: string): string {
+    return `Kl. ${start.slice(0, 5)}-${end.slice(0, 5)}`;
+  }
+
+  protected formatPrice(price: number): string {
+    return `${price} kr.`;
   }
 }

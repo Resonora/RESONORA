@@ -30,8 +30,12 @@
     z-index: 1;
   }
 
+  &__mobile-image {
+    display: none;
+  }
+
   &__title {
-    margin: 6rem 0px 0px 0px;
+    margin: 4rem 0px 0px 0px;
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(44px, 5.2vw, 90px);
     line-height: 0.95;
@@ -72,11 +76,37 @@
     letter-spacing: 0.01em;
   }
 
+  &__text-price {
+    margin: 24px 0 6px;
+    max-width: 640px;
+    color: #2d3d35;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+
+  &__text-note {
+    margin-top: 0.35rem;
+    color: #68786d;
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+  }
+
   &__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 34px;
     padding: 14px 32px;
     border-radius: 999px;
     border: 1px solid rgba(74, 143, 111, 0.18);
@@ -99,6 +129,18 @@
       cursor: pointer;
     }
   }
+
+  &__button--secondary {
+    border: 1px solid #4a8f6f;
+    background: rgba(90, 159, 127, 0.16);
+    color: #2f5e46;
+
+    &:hover,
+    &:focus-visible {
+      background: #4a8f6f;
+      color: #fff;
+    }
+  }
 }
 
 @media (max-width: 960px) {
@@ -118,8 +160,38 @@
   .lyd-hero {
     padding: 54px 0 60px;
 
+    &__surface {
+      background-image: url('/greenbg.jpg');
+      background-position: center;
+    }
+
+    &__mobile-image {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 2 / 2;
+      margin: 0 auto 28px;
+      border: 1px solid rgba(68, 85, 68, 0.16);
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(45, 61, 53, 0.12);
+      object-fit: cover;
+    }
+
     &__title {
-      font-size: clamp(32px, 8vw, 42px);
+      margin-top: 0;
+      font-size: clamp(42px, 12vw, 58px);
+      text-align: center;
+    }
+
+    &__button {
+      display: flex;
+      width: fit-content;
+    }
+
+    &__actions {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 34px;
     }
 
     &__divider {

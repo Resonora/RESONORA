@@ -9,18 +9,19 @@
           [attr.aria-expanded]="expandedIndex() === 0"
           (click)="toggleItem(0)"
         >
-          <span class="qa-item__question-text"
-            >Kan jeg høre afslappende musik med hovedtelefoner og opnå samme følelse af ro?</span
-          >
+          <span class="qa-item__question-text">Hvordan foregår en 1:1-lydrejse?</span>
           <span class="qa-item__icon" aria-hidden="true">+</span>
         </button>
         @if (expandedIndex() === 0) {
           <div class="qa-item__answer">
             <p>
-              Selvom det kan føles som ren forkælelse at lukke verden ude med blid musik i ørerne,
-              så er det ikke helt det samme som de lyde, der spilles på en lydrejse. Især netop
-              syngeskåle og gonger udsender vibrationer, som spreder sig i rummet og mærkes i
-              kroppen - helt ned på celle-niveau. Det giver en helt anden oplevelse.
+              En 1:1-lydrejse foregår som udgangspunkt i min hjemmeklinik i Odense V, hvor du ligger
+              ekstra behageligt på briksen - med puder, tæppe og god tid til bare at lande. Vi
+              starter med en kort snak, hvorefter jeg guider dig ned i kroppen og lader lydene tage
+              over. Jeg arbejder intuitivt med blandt andet gong, syngeskåle, krystalskåle, handpan
+              og andre instrumenter og lader sessionen udvikle sig med udgangspunkt i dig og det,
+              der opstår undervejs. Mod slutningen får du tid til stille og roligt at komme tilbage,
+              og vi runder kort af sammen. En session varer ca. 60 minutter.
             </p>
           </div>
         }
@@ -40,16 +41,41 @@
         @if (expandedIndex() === 1) {
           <div class="qa-item__answer">
             <p>
-              Lydrejse og lydhealing er ofte brugt som synonymer, og især i Danmark. Måske har du
-              også hørt ordet "lydbad" om netop dette. Spørger man amerikanerne, er lydhealing dog
-              mere målrettet mod at behandle specifikke problemer eller ubalancer i kroppen, mens en
-              lydrejse mere er en generel rejse ind i en dybere bevidsthedstilstand for at opnå
-              velvære og ro. Begge bruger lydvibrationer, men lydhealing kan være mere terapeutisk
-              og formålsrettet.
+              Ordene bruges ofte som synonymer. Jeg kalder det primært en lydrejse,
+              fordi ordet beskriver det, der skal ske: du ligger ned, lytter og lader lyden føre dig
+              et sted hen. Du behøver ikke tro på healing eller være spirituel for at deltage. Jeg
+              arbejder intuitivt med lyd og energi, men der er ikke noget bestemt, du skal opleve
+              eller opnå.
             </p>
           </div>
         }
       </div>
+
+      <div class="qa-item">
+        <button
+          class="qa-item__question"
+          [attr.aria-expanded]="expandedIndex() === 0"
+          (click)="toggleItem(0)"
+        >
+          <span class="qa-item__question-text"
+            >Kan jeg høre afslappende musik med hovedtelefoner og opnå samme følelse af ro?</span
+          >
+          <span class="qa-item__icon" aria-hidden="true">+</span>
+        </button>
+        @if (expandedIndex() === 0) {
+          <div class="qa-item__answer">
+            <p>
+              Afslappende musik i høretelefoner kan absolut give ro, men en lydrejse opleves
+              anderledes. Lydene opstår fysisk i rummet omkring dig, og især gong og syngeskåle
+              skaber vibrationer, som mange også oplever kropsligt. Samtidig ligger du i et rum,
+              hvor hele din opmærksomhed får lov at være på lyden - uden telefon, gøremål eller
+              andre krav.
+            </p>
+          </div>
+        }
+      </div>
+
+      
 
       <div class="qa-item">
         <button
@@ -63,10 +89,11 @@
         @if (expandedIndex() === 2) {
           <div class="qa-item__answer">
             <p>
-              Lyde har en dyb indvirkning på os på cellulært niveau. Tonerne fra instrumenter som
-              syngeskåle og gonger resonerer med vores nervesystem og hjælper hjernen med at skifte
-              til en parasympatisk tilstand. Dette aktiverer vores naturlige helings- og
-              afslapningsmekanismer, som kan frigøre opsamlet stress og følelser.
+              Lyd kan vække meget i os. En bestemt tone kan skabe ro hos ét menneske og røre noget
+              følelsesmæssigt hos et andet. Under en lydrejse ligger du samtidig stille uden de
+              sædvanlige distraktioner, og det kan gøre det lettere at lægge mærke til både kroppen,
+              tankerne og følelserne. Der findes ikke én rigtig reaktion - du må bare opleve det,
+              der opstår hos dig.
             </p>
           </div>
         }
@@ -84,12 +111,11 @@
         @if (expandedIndex() === 3) {
           <div class="qa-item__answer">
             <p>
-              Når jeg laver en lydrejse, er min intuition altid kærlig og omsorgsfuld, og jeg
-              bestræber mig på at skabe et rum som bidrager til ro, afslapning og reducering af
-              stress. Men det er ikke alle, der har gavn af lydrejser - hos mennesker med svær PTSD
-              eller epilepsi kan det være svært at være i vibrationerne fra
-              instrumenterne. Hvis du er i tvivl, er du altid velkommen til at kontakte mig, så vi
-              kan finde ud af, om en lydrejse er noget for dig.
+              De fleste kan deltage i en lydrejse, men lyd og vibrationer kan opleves intenst. Hvis
+              du er meget lydfølsom eller har en helbredstilstand, hvor du er usikker på, om
+              kraftige eller vedvarende lyde er en god idé for dig, er du altid velkommen til at
+              kontakte mig inden booking. Ved tvivl om en medicinsk tilstand anbefaler jeg, at du
+              spørger din behandler eller læge først.
             </p>
           </div>
         }
@@ -102,13 +128,25 @@
       <span class="lyd-qa__divider-line"></span>
     </div>
 
-    <div class="lyd-qa__footer">
-      <p class="lyd-qa__footer-text">
-        <strong>1 times 1:1-lydrejse:</strong> 495,-<br />
-        Hold øje med Instagram/Facebook for løbende gruppe-lydrejser i Bolbro Idrætsforening.
-        <br /><br />Arbejder du for en virksomhed? Jeg kommer gerne ud og skaber ro for dine
-        medarbejdere - kontakt mig for mere info.
-      </p>
+    <div class="lyd-qa__testimonials">
+      <blockquote class="lyd-qa__testimonial">
+        <p>
+          "Tak for en magisk lydrejse. ✨ Fra start til slut følte jeg mig tryg og guidet, og lydene
+          skabte et rum, hvor det lykkedes mig at give slip på hverdagens tanker og synke dybere
+          ind i mig selv. Jeg gik derfra med en følelse af indre balance og velvære, som blev hos
+          mig længe efter. 🩷"
+        </p>
+        <cite>- Amalie</cite>
+      </blockquote>
+
+      <blockquote class="lyd-qa__testimonial">
+        <p>
+          "Jeg havde ikke prøvet noget lignende før, men blev positivt overrasket over, hvor dybt
+          lydene påvirkede mig. Oplevelsen rørte noget i mig og gav en særlig følelse af ro og
+          nærvær. Rebecka skabte et trygt og behageligt rum, hvor jeg kunne slappe helt af."
+        </p>
+        <cite>- Helena</cite>
+      </blockquote>
     </div>
   </div>
 </section>
