@@ -17,6 +17,7 @@ interface EventRow {
   published: boolean;
   signup_url: string;
   sold_out: boolean;
+  status: 'available' | 'limited' | 'sold out';
   title: string;
 }
 
@@ -84,5 +85,9 @@ export class LydPictures implements OnInit {
 
   protected formatPrice(price: number): string {
     return `${price} kr.`;
+  }
+
+  protected isSoldOut(event: EventRow): boolean {
+    return event.status === 'sold out' || event.sold_out;
   }
 }

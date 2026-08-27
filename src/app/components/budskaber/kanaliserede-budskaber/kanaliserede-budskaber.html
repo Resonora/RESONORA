@@ -1,0 +1,79 @@
+<section class="kanaliserede-budskaber" aria-labelledby="kanaliserede-budskaber-title">
+  <div class="kanaliserede-budskaber__inner">
+    <h2 class="kanaliserede-budskaber__title" id="kanaliserede-budskaber-title">
+      Sådan foregår et kanaliseret budskab
+    </h2>
+
+    <div class="kanaliserede-budskaber__steps">
+      <article class="kanaliserede-budskaber__step">
+        <div class="kanaliserede-budskaber__number" aria-hidden="true">1</div>
+        <h3>Kontakt mig</h3>
+        <p>Udfyld formularen, ring eller kontakt mig på Instagram/Facebook.
+            Sammen taler vi om du har konkrete spørgsmål eller blot ønsker et generelt budskab.
+        </p>
+      </article>
+
+      <div class="kanaliserede-budskaber__separator" aria-hidden="true"></div>
+
+      <article class="kanaliserede-budskaber__step">
+        <div class="kanaliserede-budskaber__number" aria-hidden="true">2</div>
+        <h3>Jeg mærker ind</h3>
+        <p>Jeg stiller ind på din energi og de eventuelle spørgsmål, som du har.
+            Jeg besvarer 1 overordnet spørgsmål og 1-2 underspørgsmål i samme kanalisering.
+        </p>
+      </article>
+
+      <div class="kanaliserede-budskaber__separator" aria-hidden="true"></div>
+
+      <article class="kanaliserede-budskaber__step">
+        <div class="kanaliserede-budskaber__number" aria-hidden="true">3</div>
+        <h3>Du modtager dit budskab</h3>
+        <p>Efter 2-3 hverdage modtager du dit personlige budskab som ca. 1 sides PDF. 
+            Dette gælder også selvom du ikke har nogen konkrete spørgsmål.
+        </p>
+      </article>
+    </div>
+
+    <p class="kanaliserede-budskaber__price">Introduktionspris: 249,-</p>
+  <button class="kanaliserede-budskaber__button" type="button">Kontakt mig</button>
+
+    <div class="kanaliserede-budskaber__divider" aria-hidden="true">
+      <span></span>
+      <img src="/resonora%20%23b396c9.png" alt="" />
+      <span></span>
+    </div>
+
+    <div class="kanaliserede-budskaber__carousel" aria-label="Udtalelser">
+      <button
+        class="kanaliserede-budskaber__carousel-button kanaliserede-budskaber__carousel-button--previous"
+        type="button"
+        aria-label="Forrige udtalelse"
+        (click)="showPrevious()"
+      >
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="kanaliserede-budskaber__viewport">
+        <div
+          class="kanaliserede-budskaber__testimonials"
+          [style.transform]="'translateX(-' + currentTestimonial() * 25 + '%)'"
+        >
+          @for (testimonial of testimonials; track testimonial.text) {
+            <blockquote class="kanaliserede-budskaber__testimonial">
+              <p>"{{ testimonial.text }}"</p>
+            </blockquote>
+          }
+        </div>
+      </div>
+
+      <button
+        class="kanaliserede-budskaber__carousel-button kanaliserede-budskaber__carousel-button--next"
+        type="button"
+        aria-label="Næste udtalelse"
+        (click)="showNext()"
+      >
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</section>

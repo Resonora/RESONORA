@@ -99,7 +99,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 34px;
   }
 
@@ -118,6 +118,7 @@
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
+    white-space: nowrap;
     transition:
       transform 180ms ease,
       box-shadow 180ms ease;

@@ -9,7 +9,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: url('/clairvoyance-hero-background.png');
+    background-image: url('/budskaber-hero-background.png');
     background-size: cover;
     background-position: center;
   }
@@ -31,7 +31,7 @@
   }
 
   &__title {
-    margin: 6rem 0px 0px 0px;
+    margin: 4rem 0px 0px 0px;
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(44px, 5.2vw, 90px);
     line-height: 0.95;
@@ -72,11 +72,18 @@
     letter-spacing: 0.01em;
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin-top: 34px;
+  }
+
   &__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 34px;
     padding: 14px 32px;
     border-radius: 999px;
     border: 1px solid rgba(139, 92, 158, 0.18);
@@ -88,6 +95,7 @@
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
+    white-space: nowrap;
     transition:
       transform 180ms ease,
       box-shadow 180ms ease;
@@ -96,6 +104,19 @@
     &:focus-visible {
       transform: translateY(-2px);
       box-shadow: 0 12px 32px rgba(30, 20, 30, 0.08);
+      cursor: pointer;
+    }
+  }
+
+  &__button--secondary {
+    border: 1px solid #8b5c9e;
+    background: rgba(153, 102, 204, 0.16);
+    color: #70477f;
+
+    &:hover,
+    &:focus-visible {
+      background: #8b5c9e;
+      color: #fff;
     }
   }
 }
@@ -123,6 +144,16 @@
 
     &__divider {
       margin: 24px 0 20px;
+    }
+
+    &__actions {
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: 28px;
+    }
+
+    &__button {
+      width: 100%;
     }
 
     &__text,

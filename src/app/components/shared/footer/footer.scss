@@ -35,6 +35,18 @@
     text-align: center;
   }
 
+  &__tagline {
+    display: block;
+    margin: 8px auto 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
   &__ornament {
     display: flex;
     align-items: center;
@@ -42,10 +54,11 @@
     gap: 12px;
     color: #c9a06264;
     font-size: 18px;
+    margin-top: 5px;
 
     img {
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
     }
 

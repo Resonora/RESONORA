@@ -1,0 +1,189 @@
+.afdoedekontakt {
+	position: relative;
+	overflow: hidden;
+	padding: 38px 20px 44px;
+	background:
+		linear-gradient(rgba(255, 250, 247, 0.25), rgba(255, 250, 247, 0.25)),
+		url('/budskaber-afdodekontakt.png') center / cover no-repeat;
+	color: #63434a;
+
+	&__inner {
+		position: relative;
+		width: min(920px, 100%);
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	&__heading {
+		max-width: 660px;
+		margin: 0 auto;
+
+		h2 {
+			margin: 0 0 18px;
+			color: #a46767;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: clamp(30px, 4vw, 41px);
+			font-weight: 500;
+			line-height: 1.05;
+		}
+
+		p,
+		.afdoedekontakt__note {
+			margin: 0;
+			color: #5f4f50;
+			font-family: 'Manrope', sans-serif;
+			font-size: 0.84rem;
+			line-height: 1.7;
+		}
+	}
+
+	&__price-badge {
+		position: absolute;
+		top: -10px;
+		right: 24px;
+		display: grid;
+		place-items: center;
+		width: 88px;
+		height: 88px;
+		border-radius: 50%;
+		background: #e7bd6b;
+		color: #6e5a3c;
+		font-family: 'Manrope', sans-serif;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.07em;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	&__intro-price {
+		margin: 18px 0 12px;
+		color: #a46767;
+		font-family: 'Manrope', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	&__steps {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr) 70px minmax(0, 1fr);
+		align-items: center;
+		width: min(760px, 100%);
+		margin: 28px auto 18px;
+	}
+
+	&__step {
+		h3 {
+			margin: 12px 0 0;
+			color: #63434a;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: clamp(18px, 2.4vw, 23px);
+			font-weight: 600;
+			line-height: 1.25;
+		}
+
+		p {
+			margin: 8px 0 0;
+			color: #665556;
+			font-family: 'Manrope', sans-serif;
+			font-size: 0.76rem;
+			line-height: 1.6;
+		}
+	}
+
+	&__icon {
+		display: grid;
+		place-items: center;
+		width: 94px;
+		height: 94px;
+		margin: 0 auto;
+		border: 1px solid rgba(194, 125, 125, 0.18);
+		border-radius: 50%;
+		background: rgba(255, 250, 247, 0.54);
+		color: #c78080;
+		font-size: 3.2rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__arrow {
+		color: #c78080;
+		font-size: 1.45rem;
+	}
+
+	&__note {
+		margin: 14px 0 14px;
+		color: #665556;
+		font-family: 'Manrope', sans-serif;
+		font-size: 0.82rem;
+		line-height: 1.7;
+	}
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 25px;
+		min-width: 190px;
+		padding: 11px 27px;
+		border: 1px solid #a46767;
+		border-radius: 999px;
+		background: #a46767;
+		color: #fff;
+		font-family: 'Manrope', sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: background-color 180ms ease, transform 180ms ease;
+
+		&:hover,
+		&:focus-visible {
+			background: #d89c9a;
+			transform: translateY(-2px);
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.afdoedekontakt {
+		padding: 34px 16px 40px;
+
+		&__price-badge {
+			position: static;
+			margin: 22px auto 0;
+		}
+
+		&__desktop-break {
+			display: none;
+		}
+
+		&__steps {
+			grid-template-columns: 1fr;
+			gap: 18px;
+			margin-top: 28px;
+		}
+
+		&__arrow {
+			transform: rotate(90deg);
+		}
+
+		&__note {
+			margin-top: 24px;
+		}
+
+		&__intro-price {
+			margin-top: 18px;
+		}
+
+		&__button {
+			min-width: 0;
+			width: min(100%, 320px);
+		}
+	}
+}

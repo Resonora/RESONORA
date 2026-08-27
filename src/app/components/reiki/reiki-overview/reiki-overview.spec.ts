@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Intuitivvejledning } from './intuitivvejledning';
+import { ReikiOverview } from './reiki-overview';
 
-describe('Intuitivvejledning', () => {
-  let component: Intuitivvejledning;
-  let fixture: ComponentFixture<Intuitivvejledning>;
+describe('ReikiOverview', () => {
+  let component: ReikiOverview;
+  let fixture: ComponentFixture<ReikiOverview>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Intuitivvejledning],
+      imports: [ReikiOverview],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Intuitivvejledning);
+    fixture = TestBed.createComponent(ReikiOverview);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

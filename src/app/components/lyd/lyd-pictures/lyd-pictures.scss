@@ -1,6 +1,9 @@
 .lyd-pictures {
   padding: 72px 24px 104px;
   background: #f7fbf8;
+  background-image: url('/lyd-pictures-background-lodret.png');
+  background-size: cover;
+  background-position: center;
   color: #2d3d35;
   font-family: 'Manrope', sans-serif;
 
@@ -35,11 +38,78 @@
   }
 
   &__lead {
-    max-width: 590px;
+    max-width: 700px;
     margin: 0 auto;
     color: #445544;
     font-size: 15px;
     line-height: 1.8;
+    text-align: center;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: min(420px, 100%);
+    margin: 32px auto 26px;
+
+    &-line {
+      flex: 1 1 auto;
+      height: 1px;
+      background: rgba(74, 143, 111, 0.18);
+    }
+
+    &-icon {
+      display: block;
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
+    }
+  }
+
+  &__price {
+    max-width: 700px;
+    margin: 20px auto 0;
+    color: #2d3d35;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(74, 143, 111, 0.18);
+    background: #5a9f7f;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(20, 30, 20, 0.08);
+      cursor: pointer;
+    }
   }
 
   &__grid {
@@ -150,6 +220,29 @@
     }
   }
 
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__badge--limited {
+    background: rgba(224, 168, 0, 0.16);
+    color: #a97600;
+  }
+
+  &__badge--sold-out {
+    background: rgba(197, 48, 48, 0.14);
+    color: #c53030;
+  }
+
   &__event-side {
     display: flex;
     align-items: center;
@@ -241,6 +334,7 @@
 
     &__grid {
       gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       margin-bottom: 44px;
     }
 
@@ -269,6 +363,50 @@
       grid-column: 2;
       justify-content: space-between;
       gap: 12px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .lyd-pictures {
+    padding: 48px 14px 60px;
+
+    &__title {
+      font-size: 34px;
+    }
+
+    &__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    &__item {
+      aspect-ratio: 16 / 10;
+    }
+
+    &__event {
+      grid-template-columns: 1fr;
+      row-gap: 8px;
+    }
+
+    &__event-date {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 8px;
+      min-height: auto;
+      border-right: none;
+      border-bottom: 1px solid rgba(74, 143, 111, 0.2);
+      padding-bottom: 8px;
+    }
+
+    &__event-side {
+      grid-column: 1;
+    }
+
+    &__button {
+      width: 100%;
+      padding: 14px 20px;
     }
   }
 }

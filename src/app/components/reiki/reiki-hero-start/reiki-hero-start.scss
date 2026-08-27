@@ -31,7 +31,7 @@
   }
 
   &__title {
-    margin: 6rem 0px 0px 0px;
+    margin: 4rem 0px 0px 0px;
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(44px, 5.2vw, 90px);
     line-height: 0.95;
@@ -98,6 +98,17 @@
       box-shadow: 0 12px 32px rgba(20, 30, 45, 0.08);
       cursor: pointer;
     }
+  }
+
+    &__text-price {
+    margin: 24px 0 6px;
+    max-width: 640px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: #5c5048;
+    letter-spacing: 0.01em;
   }
 }
 

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IntuitivHeroStart } from './intuitiv-hero-start';
+import { BudskaberQa } from './budskaber-qa';
 
-describe('IntuitivHeroStart', () => {
-  let component: IntuitivHeroStart;
-  let fixture: ComponentFixture<IntuitivHeroStart>;
+describe('BudskaberQa', () => {
+  let component: BudskaberQa;
+  let fixture: ComponentFixture<BudskaberQa>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitivHeroStart],
+      imports: [BudskaberQa],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IntuitivHeroStart);
+    fixture = TestBed.createComponent(BudskaberQa);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

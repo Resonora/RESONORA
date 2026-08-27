@@ -1,0 +1,233 @@
+.budskaber-overview {
+  padding: 40px 20px;
+  background: #fff url('/budskaber-overview-background.png') center / cover no-repeat;
+
+  &__container {
+    width: min(820px, calc(100% - 40px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    align-items: stretch;
+  }
+
+  &__card {
+    position: relative;
+    border-radius: 16px;
+    padding: 40px 32px 0px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 420px;
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    &--purple {
+      background: url('/budskaber-overview-budskabercard.png') center / cover no-repeat,
+                  linear-gradient(135deg, #f3e8f5 0%, #e8dff1 100%);
+      color: #5c3d6b;
+
+      .budskaber-overview__card-title {
+        color: #8b5c9e;
+      }
+
+      .budskaber-overview__button {
+        margin-top: auto;
+        background-color: #9966cc;
+        border-color: #8b5c9e;
+        color: #fff;
+
+        &:hover {
+          background-color: #8b5c9e;
+        }
+      }
+
+      .budskaber-overview__feature-check {
+        color: #8b5c9e;
+      }
+    }
+
+    &--pink {
+      background: url('/budskaber-overview-afdødecard.png') center / cover no-repeat,
+                  linear-gradient(135deg, #f5e8e3 0%, #f0e3db 100%);
+      color: #6b4a44;
+
+      .budskaber-overview__card-title {
+        color: #b8835a;
+      }
+
+      .budskaber-overview__button {
+        margin-top: auto;
+        background-color: #c77560;
+        border-color: #b8835a;
+        color: #fff;
+
+        &:hover {
+          background-color: #b8835a;
+        }
+      }
+
+      .budskaber-overview__feature-check {
+        color: #b8835a;
+      }
+    }
+  }
+
+  &__card-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__card-floral {
+    position: absolute;
+    opacity: 0.4;
+    object-fit: contain;
+
+    &--left {
+      bottom: 0;
+      left: -20px;
+      width: 120px;
+      height: 120px;
+    }
+
+    &--right {
+      bottom: 0;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__card-title {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  &__card-description {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    opacity: 0.9;
+  }
+
+  &__features {
+    list-style: none;
+    margin: 8px 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  &__feature-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  &__button {
+    margin-top: auto;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: transparent;
+    color: inherit;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+    white-space: nowrap;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .budskaber-overview {
+    padding: 30px 16px;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__card {
+      min-height: auto;
+      padding: 32px 24px;
+    }
+
+    &__card-title {
+      font-size: clamp(20px, 5vw, 26px);
+    }
+
+    &__card-floral {
+      opacity: 0.15;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
