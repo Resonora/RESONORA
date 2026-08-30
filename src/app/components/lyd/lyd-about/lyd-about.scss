@@ -1,4 +1,4 @@
-.lyd-pictures {
+.lyd-about {
   padding: 72px 24px 104px;
   background: #f7fbf8;
   background-image: url('/lyd-pictures-background-lodret.png');
@@ -312,7 +312,7 @@
 }
 
 @media (max-width: 700px) {
-  .lyd-pictures {
+  .lyd-about {
     padding: 64px 18px 76px;
 
     &__intro {
@@ -368,7 +368,7 @@
 }
 
 @media (max-width: 480px) {
-  .lyd-pictures {
+  .lyd-about {
     padding: 48px 14px 60px;
 
     &__title {

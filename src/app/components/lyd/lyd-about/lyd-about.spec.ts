@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LydPictures } from './lyd-pictures';
+import { LydAbout } from './lyd-about';
 
-describe('LydPictures', () => {
-  let component: LydPictures;
-  let fixture: ComponentFixture<LydPictures>;
+describe('LydAbout', () => {
+  let component: LydAbout;
+  let fixture: ComponentFixture<LydAbout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LydPictures],
+      imports: [LydAbout],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LydPictures);
+    fixture = TestBed.createComponent(LydAbout);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

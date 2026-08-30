@@ -1,0 +1,98 @@
+<section class="lyd-about" id="gruppe-lydrejser" aria-labelledby="pictures-title">
+  <div class="lyd-about__inner">
+    <div class="lyd-about__intro">
+      <h2 id="pictures-title" class="lyd-about__title">Gruppe-lydrejser</h2>
+      <p class="lyd-about__lead">
+        På en gruppe-lydrejse får lydene virkelig lov til at udfolde sig: Rummet er større, og
+        tonerne kan derfor fylde rummet på en helt anden måde.<br>
+        Jeg holder løbende gruppe-lydrejser, hvor du er mere end velkommen. Se kommende datoer nedenfor, eller følg
+        med på Instagram/Facebook for mere i fremtiden.
+      </p>
+    </div>
+
+    <div class="lyd-about__grid">
+      @for (image of pictures; track image.id) {
+        <figure class="lyd-about__item">
+          <img
+            class="lyd-about__image"
+            [src]="image.thumbnail"
+            [alt]="image.title"
+            loading="lazy"
+          />
+        </figure>
+      }
+    </div>
+
+    <div class="lyd-about__schedule">
+      <div class="lyd-about__schedule-heading">
+        <h3>Kom med næste gang</h3>
+      </div>
+
+      <div class="lyd-about__events">
+        @if (loading()) {
+          <p class="lyd-about__status">Henter kommende datoer...</p>
+        } @else if (loadError()) {
+          <p class="lyd-about__status">Datoerne kunne ikke hentes lige nu. Prøv igen senere.</p>
+        } @else if (events().length === 0) {
+          <p class="lyd-about__status">Der er ingen kommende gruppe-lydrejser lige nu.</p>
+        } @else {
+          @for (event of events(); track event.id) {
+            <article class="lyd-about__event">
+              <div class="lyd-about__event-date">
+                <strong>{{ formatDay(event.event_date) }}</strong>
+                <span>{{ formatMonth(event.event_date) }}</span>
+              </div>
+              <div class="lyd-about__event-details">
+                <h4>{{ event.title }}</h4>
+                <p>{{ formatTime(event.start_time, event.end_time) }} · {{ event.city }}</p>
+                @if (event.status === 'limited') {
+                  <span class="lyd-about__badge lyd-about__badge--limited">Få billetter</span>
+                } @else if (event.status === 'sold out') {
+                  <span class="lyd-about__badge lyd-about__badge--sold-out">Udsolgt</span>
+                }
+              </div>
+              <div class="lyd-about__event-side">
+                <strong>{{ formatPrice(event.price) }}</strong>
+                @if (isSoldOut(event)) {
+                  <span class="lyd-about__signup lyd-about__signup--sold-out">Udsolgt</span>
+                } @else {
+                  <a
+                    class="lyd-about__signup"
+                    [href]="event.signup_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Tilmeld
+                  </a>
+                }
+              </div>
+            </article>
+          }
+        }
+      </div>
+    </div>
+    <br>
+    <div class="lyd-about__divider" aria-hidden="true">
+      <span class="lyd-about__divider-line"></span>
+      <img class="lyd-about__divider-icon" src="/resonora%20%237cb59f.png" alt="" />
+      <span class="lyd-about__divider-line"></span>
+    </div>
+    <p class="lyd-about__lead">
+      Foretrækker du en privat lydrejse? Book en tid og oplev lyden i et mere intimt rum.
+    </p>
+
+    <p class="lyd-about__price">1:1 lydrejse: 495,-</p>
+
+    <div class="lyd-about__actions">
+      <a
+        class="lyd-about__button"
+        type="button"
+        data-cal-link="resonora/lyd"
+        data-cal-namespace="lyd"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
+      >
+        BOOK 1:1 LYDREJSE
+      </a>
+    </div>
+  </div>
+</section>

@@ -64,10 +64,13 @@
   }
 
   &__subtitle {
-    font-family: 'Manrope', sans-serif;
-    color: #655a55;
-    font-size: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #6d5c52;
+    font-size: clamp(18px, 2.6vw, 26px);
     font-weight: 500;
+    letter-spacing: 0.05em;
+    display: inline-block;
   }
 
   &__heart {
@@ -115,7 +118,7 @@
   }
 
   &__cta {
-    margin-top: 40px;
+    margin-top: 64px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -195,7 +198,7 @@
     }
 
     &__subtitle {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     &__headline {

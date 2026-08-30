@@ -1,0 +1,150 @@
+.reiki-aboutme {
+	position: relative;
+	overflow: hidden;
+	padding: 60px 0 72px;
+	background: #f0f6fa;
+	color: #2d3d45;
+}
+
+.reiki-aboutme__surface {
+	position: absolute;
+	inset: 0;
+	background: url('/reiki-aboutme-background.png') center / cover no-repeat;
+	opacity: 0.98;
+	pointer-events: none;
+}
+
+.reiki-aboutme__inner {
+	position: relative;
+	width: min(1140px, calc(100% - 40px));
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: 3rem;
+	align-items: center;
+}
+
+.reiki-aboutme__media {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.reiki-aboutme__photo-card {
+	width: 100%;
+	max-width: 520px;
+	aspect-ratio: 0.9 / 1;
+	overflow: hidden;
+	border: 1px solid rgba(91, 141, 184, 0.16);
+	border-radius: 32px;
+	background: rgba(255, 255, 255, 0.72);
+	box-shadow: 0 28px 68px rgba(33, 68, 94, 0.14);
+}
+
+.reiki-aboutme__photo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.reiki-aboutme__copy {
+	position: relative;
+	z-index: 1;
+}
+
+.reiki-aboutme__title {
+	margin: 0 0 18px;
+	color: #5b8db8;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: clamp(36px, 4.2vw, 56px);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	line-height: 1.02;
+}
+
+.reiki-aboutme__heading-line {
+	display: flex;
+	align-items: center;
+	margin: 0 auto 26px;
+}
+
+.reiki-aboutme__heading-line span {
+	flex: 1;
+	height: 1px;
+	background: rgba(91, 141, 184, 0.22);
+}
+
+.reiki-aboutme__text-group {
+	display: grid;
+	gap: 18px;
+	margin-bottom: 24px;
+}
+
+.reiki-aboutme__text {
+	margin: 0;
+	color: #445555;
+	font-family: 'Manrope', sans-serif;
+	font-size: 16px;
+	line-height: 1.9;
+}
+
+.reiki-aboutme__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 16px;
+	padding: 14px 32px;
+	border: 1px solid rgba(91, 141, 184, 0.18);
+	border-radius: 999px;
+	background: #6b9fc9;
+	color: #fff;
+	font-family: 'Manrope', sans-serif;
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+
+	&:hover,
+	&:focus-visible {
+		cursor: pointer;
+		transform: translateY(-2px);
+		box-shadow: 0 12px 32px rgba(33, 68, 94, 0.14);
+	}
+}
+
+@media (max-width: 980px) {
+	.reiki-aboutme__inner {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.reiki-aboutme__media {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 700px) {
+	.reiki-aboutme {
+		padding: 44px 0 48px;
+	}
+
+	.reiki-aboutme__photo-card {
+		max-width: 100%;
+		aspect-ratio: auto;
+		min-height: 420px;
+	}
+
+	.reiki-aboutme__title {
+		font-size: clamp(28px, 8vw, 36px);
+	}
+
+	.reiki-aboutme__heading-line {
+		margin-bottom: 20px;
+	}
+
+	.reiki-aboutme__text {
+		font-size: 15px;
+	}
+}

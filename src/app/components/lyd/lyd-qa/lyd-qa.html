@@ -6,30 +6,6 @@
       <div class="qa-item">
         <button
           class="qa-item__question"
-          [attr.aria-expanded]="expandedIndex() === 0"
-          (click)="toggleItem(0)"
-        >
-          <span class="qa-item__question-text">Hvordan foregår en 1:1-lydrejse?</span>
-          <span class="qa-item__icon" aria-hidden="true">+</span>
-        </button>
-        @if (expandedIndex() === 0) {
-          <div class="qa-item__answer">
-            <p>
-              En 1:1-lydrejse foregår som udgangspunkt i min hjemmeklinik i Odense V, hvor du ligger
-              ekstra behageligt på briksen - med puder, tæppe og god tid til bare at lande. Vi
-              starter med en kort snak, hvorefter jeg guider dig ned i kroppen og lader lydene tage
-              over. Jeg arbejder intuitivt med blandt andet gong, syngeskåle, krystalskåle, handpan
-              og andre instrumenter og lader sessionen udvikle sig med udgangspunkt i dig og det,
-              der opstår undervejs. Mod slutningen får du tid til stille og roligt at komme tilbage,
-              og vi runder kort af sammen. En session varer ca. 60 minutter.
-            </p>
-          </div>
-        }
-      </div>
-
-      <div class="qa-item">
-        <button
-          class="qa-item__question"
           [attr.aria-expanded]="expandedIndex() === 1"
           (click)="toggleItem(1)"
         >
@@ -41,11 +17,11 @@
         @if (expandedIndex() === 1) {
           <div class="qa-item__answer">
             <p>
-              Ordene bruges ofte som synonymer. Jeg kalder det primært en lydrejse,
-              fordi ordet beskriver det, der skal ske: du ligger ned, lytter og lader lyden føre dig
-              et sted hen. Du behøver ikke tro på healing eller være spirituel for at deltage. Jeg
-              arbejder intuitivt med lyd og energi, men der er ikke noget bestemt, du skal opleve
-              eller opnå.
+              Ordene bruges ofte som synonymer, om end lydhealing ind i mellem kan referere til et
+              mere dybdegående, terapeutisk arbejde. Jeg kalder det primært en lydrejse, fordi ordet
+              beskriver det, der typisk sker i rummet med mig: du ligger afslappet, lytter og lader
+              lyden føre dig et andet sted hen. For nogen er det en indre rejse frem eller tilbage i
+              tid, for andre er det blot væk fra hverdagens travlhed.
             </p>
           </div>
         }
@@ -67,15 +43,13 @@
             <p>
               Afslappende musik i høretelefoner kan absolut give ro, men en lydrejse opleves
               anderledes. Lydene opstår fysisk i rummet omkring dig, og især gong og syngeskåle
-              skaber vibrationer, som mange også oplever kropsligt. Samtidig ligger du i et rum,
+              skaber vibrationer, som flere også oplever kropsligt. Samtidig ligger du i et rum,
               hvor hele din opmærksomhed får lov at være på lyden - uden telefon, gøremål eller
               andre krav.
             </p>
           </div>
         }
       </div>
-
-      
 
       <div class="qa-item">
         <button
@@ -92,8 +66,7 @@
               Lyd kan vække meget i os. En bestemt tone kan skabe ro hos ét menneske og røre noget
               følelsesmæssigt hos et andet. Under en lydrejse ligger du samtidig stille uden de
               sædvanlige distraktioner, og det kan gøre det lettere at lægge mærke til både kroppen,
-              tankerne og følelserne. Der findes ikke én rigtig reaktion - du må bare opleve det,
-              der opstår hos dig.
+              tankerne og følelserne. Alt er velkomment på en lydrejse hos mig.
             </p>
           </div>
         }
@@ -111,11 +84,34 @@
         @if (expandedIndex() === 3) {
           <div class="qa-item__answer">
             <p>
-              De fleste kan deltage i en lydrejse, men lyd og vibrationer kan i nogle tilfælde opleves intenst. Hvis
-              du er meget lydfølsom eller har en helbredstilstand, hvor du er usikker på, om
-              kraftige eller vedvarende lyde er en god idé for dig, er du altid velkommen til at
-              kontakte mig inden booking. Ved tvivl om en medicinsk tilstand anbefaler jeg, at du
-              spørger din behandler eller læge først.
+              De fleste kan deltage i en lydrejse, men lyd og vibrationer kan i nogle tilfælde
+              opleves intenst. Hvis du er meget lydfølsom eller har en helbredstilstand, hvor du er
+              usikker på, om kraftige eller vedvarende lyde er en god idé for dig, er du altid
+              velkommen til at kontakte mig inden booking. Ved tvivl om en medicinsk tilstand
+              anbefaler jeg, at du spørger din behandler eller læge først.
+            </p>
+          </div>
+        }
+      </div>
+      <div class="qa-item">
+        <button
+          class="qa-item__question"
+          [attr.aria-expanded]="expandedIndex() === 4"
+          (click)="toggleItem(4)"
+        >
+          <span class="qa-item__question-text">Hvordan foregår en 1:1-lydrejse?</span>
+          <span class="qa-item__icon" aria-hidden="true">+</span>
+        </button>
+        @if (expandedIndex() === 4) {
+          <div class="qa-item__answer">
+            <p>
+              En 1:1-lydrejse foregår som udgangspunkt i min hjemmeklinik i Odense V, hvor du ligger
+              ekstra behageligt på briksen - med puder, tæppe og god tid til bare at lande. Vi
+              starter med en kort samtale, hvorefter jeg guider dig ned i kroppen og lader lydene tage
+              over. Jeg arbejder intuitivt med blandt andet gong, syngeskåle, krystalskåle, handpan
+              og andre instrumenter og lader sessionen udvikle sig med udgangspunkt i dig og det,
+              der opstår undervejs. Mod slutningen får du tid til stille og roligt at komme tilbage,
+              og vi runder kort af sammen. En session varer ca. 60 minutter.
             </p>
           </div>
         }
@@ -132,9 +128,9 @@
       <blockquote class="lyd-qa__testimonial">
         <p>
           "Tak for en magisk lydrejse. ✨ Fra start til slut følte jeg mig tryg og guidet, og lydene
-          skabte et rum, hvor det lykkedes mig at give slip på hverdagens tanker og synke dybere
-          ind i mig selv. Jeg gik derfra med en følelse af indre balance og velvære, som blev hos
-          mig længe efter. 🩷"
+          skabte et rum, hvor det lykkedes mig at give slip på hverdagens tanker og synke dybere ind
+          i mig selv. Jeg gik derfra med en følelse af indre balance og velvære, som blev hos mig
+          længe efter. 🩷"
         </p>
         <cite>- Amalie</cite>
       </blockquote>

@@ -4,11 +4,11 @@ import { Menubar } from "../../components/shared/menubar/menubar";
 import { LydQa } from "../../components/lyd/lyd-qa/lyd-qa";
 import { LydAboutme } from '../../components/lyd/lyd-aboutme/lyd-aboutme';
 import { Footer } from "../../components/shared/footer/footer";
-import { LydPictures } from '../../components/lyd/lyd-pictures/lyd-pictures';
+import { LydAbout } from '../../components/lyd/lyd-about/lyd-about';
 
 @Component({
   selector: 'app-lyd',
-  imports: [LydHeroStart, Menubar, LydQa, LydAboutme, LydPictures, Footer],
+  imports: [LydHeroStart, Menubar, LydQa, LydAboutme, LydAbout, Footer],
   templateUrl: './lyd.html',
   styleUrl: './lyd.scss',
 })

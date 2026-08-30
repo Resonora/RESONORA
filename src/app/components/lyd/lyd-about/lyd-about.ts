@@ -27,12 +27,12 @@ const MONTHS_DA = [
 ];
 
 @Component({
-  selector: 'app-lyd-pictures',
+  selector: 'app-lyd-about',
   imports: [],
-  templateUrl: './lyd-pictures.html',
-  styleUrl: './lyd-pictures.scss',
+  templateUrl: './lyd-about.html',
+  styleUrl: './lyd-about.scss',
 })
-export class LydPictures implements OnInit {
+export class LydAbout implements OnInit {
   protected readonly events = signal<EventRow[]>([]);
   protected readonly loading = signal(true);
   protected readonly loadError = signal(false);
