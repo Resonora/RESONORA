@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-reiki-about',
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './reiki-about.html',
   styleUrl: './reiki-about.scss',
 })

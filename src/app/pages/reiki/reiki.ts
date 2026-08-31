@@ -5,10 +5,11 @@ import { Menubar } from '../../components/shared/menubar/menubar';
 import { ReikiOverview } from '../../components/reiki/reiki-overview/reiki-overview';
 import { Footer } from "../../components/shared/footer/footer";
 import { ReikiAboutme } from '../../components/reiki/reiki-aboutme/reiki-aboutme';
+import { ReikiThoughts } from '../../components/reiki/reiki-thoughts/reiki-thoughts';
 
 @Component({
   selector: 'app-reiki',
-  imports: [ReikiHeroStart, ReikiAbout, Menubar, ReikiOverview, ReikiAboutme, Footer],
+  imports: [ReikiHeroStart, ReikiAbout, Menubar, ReikiOverview, ReikiThoughts, ReikiAboutme, Footer],
   templateUrl: './reiki.html',
   styleUrl: './reiki.scss',
 })

@@ -37,11 +37,17 @@
 
   &__features {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
     align-items: start;
-    gap: 28px;
+    column-gap: 28px;
     margin-top: 18px;
     padding: 26px 10px 0;
+  }
+
+  &__separator {
+    align-self: stretch;
+    min-height: 112px;
+    border-left: 2px dotted rgba(91, 141, 184, 0.3);
   }
 
   &__feature {
@@ -59,8 +65,8 @@
   &__icon {
     display: grid;
     place-items: center;
-    width: 94px;
-    height: 94px;
+    width: 75px;
+    height: 75px;
     margin-bottom: 12px;
     border-radius: 50%;
     overflow: hidden;
@@ -73,20 +79,6 @@
       height: 100%;
       object-fit: cover;
     }
-  }
-
-  &__number {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    margin: 8px auto 6px;
-    border-radius: 50%;
-    background: #6b9fc9;
-    color: #fff;
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
   }
 
   &__feature h3 {
@@ -103,6 +95,40 @@
     font-family: 'Manrope', sans-serif;
     font-size: 0.98rem;
     line-height: 1.8;
+  }
+
+  &__price {
+    margin: 30px 0 0;
+    color: #5b8db8;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 11px 27px;
+    border: 1px solid #5b8db8;
+    border-radius: 999px;
+    background: #5b8db8;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+      background: #6b9fc9;
+      transform: translateY(-2px);
+    }
   }
 
   &__divider {
@@ -243,6 +269,19 @@
   }
 }
 
+@media (max-width: 980px) {
+  .reiki-overview {
+    &__features {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    &__separator {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 760px) {
   .reiki-overview {
     padding: 34px 16px 40px;
@@ -263,8 +302,8 @@
     }
 
     &__icon {
-      width: 94px;
-      height: 94px;
+      width: 75px;
+      height: 75px;
       font-size: 2.4rem;
     }
 
