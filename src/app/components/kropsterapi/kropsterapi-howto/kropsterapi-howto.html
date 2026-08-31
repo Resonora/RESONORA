@@ -71,15 +71,17 @@
     </div>
 
     <section class="kropsterapi-feedback" aria-labelledby="kropsterapi-feedback-title">
-      <div class="kropsterapi-feedback__carousel" aria-label="Udtalelser">
-        <button
-          class="kropsterapi-feedback__carousel-button"
-          type="button"
-          aria-label="Forrige udtalelse"
-          (click)="showPrevious()"
-        >
-          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-        </button>
+      <div class="kropsterapi-feedback__carousel" [class.kropsterapi-feedback__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+        @if (testimonials.length > 1) {
+          <button
+            class="kropsterapi-feedback__carousel-button"
+            type="button"
+            aria-label="Forrige udtalelse"
+            (click)="showPrevious()"
+          >
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+        }
 
         <div class="kropsterapi-feedback__viewport">
           <div
@@ -95,15 +97,25 @@
           </div>
         </div>
 
-        <button
-          class="kropsterapi-feedback__carousel-button"
-          type="button"
-          aria-label="Næste udtalelse"
-          (click)="showNext()"
-        >
-          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-        </button>
+        @if (testimonials.length > 1) {
+          <button
+            class="kropsterapi-feedback__carousel-button"
+            type="button"
+            aria-label="Næste udtalelse"
+            (click)="showNext()"
+          >
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        }
       </div>
+
+      @if (testimonials.length > 1) {
+        <div class="kropsterapi-feedback__indicators" aria-label="Vælg udtalelse">
+          @for (testimonial of testimonials; track testimonial.author; let index = $index) {
+            <button class="kropsterapi-feedback__indicator" type="button" [class.kropsterapi-feedback__indicator--active]="currentTestimonial() === index" [attr.aria-label]="'Gå til udtalelse ' + (index + 1)" [attr.aria-current]="currentTestimonial() === index ? 'true' : null" (click)="showTestimonial(index)"></button>
+          }
+        </div>
+      }
     </section>
   </div>
 </section>

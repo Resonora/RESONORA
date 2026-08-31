@@ -165,6 +165,11 @@
     gap: 18px;
     max-width: 740px;
     margin: 0 auto;
+
+    &--single {
+      grid-template-columns: minmax(0, 620px);
+      justify-content: center;
+    }
   }
 
   &__viewport {
@@ -203,16 +208,28 @@
       transform: scale(1.05);
     }
 
-    &:disabled {
-      opacity: 0.35;
-      cursor: default;
-      transform: none;
+  }
 
-      &:hover,
-      &:focus-visible {
-        background: rgba(255, 255, 255, 0.7);
-        color: #5b8db8;
-      }
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  &__indicator {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(91, 141, 184, 0.35);
+    cursor: pointer;
+    transition: transform 180ms ease, background-color 180ms ease;
+
+    &--active {
+      background: #5b8db8;
+      transform: scale(1.25);
     }
   }
 

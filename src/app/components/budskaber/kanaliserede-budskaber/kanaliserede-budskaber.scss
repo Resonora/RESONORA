@@ -33,6 +33,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		min-height: 100%;
 		text-align: center;
 
 		h3 {
@@ -46,6 +47,7 @@
 
 		p {
 			margin: 0;
+			max-width: 240px;
 			color: #544454;
 			font-family: 'Manrope', sans-serif;
 			font-size: 1rem;
@@ -53,17 +55,25 @@
 		}
 	}
 
-	&__number {
+	&__media {
+		margin-bottom: 12px;
+	}
+
+	&__icon {
 		display: grid;
+		width: 75px;
+		height: 75px;
 		place-items: center;
-		width: 25px;
-		aspect-ratio: 1;
 		border-radius: 50%;
-		background: #725584;
-		color: #fff;
-		font-family: 'Manrope', sans-serif;
-		font-size: 0.78rem;
-		font-weight: 700;
+		border: 1px solid rgba(114, 85, 132, 0.2);
+		background: rgba(114, 85, 132, 0.08);
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
 	}
 
 	&__separator {
@@ -81,29 +91,14 @@
 		color: #725584;
 	}
 
-	&__button {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 25px auto 0;
-		padding: 11px 27px;
-		border: 1px solid #725584;
-		border-radius: 999px;
-		background: #725584;
-		color: #fff;
+	&__contact-note {
+		margin: 14px 0 0;
+		color: #725584;
 		font-family: 'Manrope', sans-serif;
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		cursor: pointer;
-		transition: background-color 180ms ease, transform 180ms ease;
-
-		&:hover,
-		&:focus-visible {
-			background: #8b5c9e;
-			transform: translateY(-2px);
-		}
+		font-size: 0.9rem;
+		font-style: italic;
+		line-height: 1.6;
+		text-align: center;
 	}
 
 	&__divider {
@@ -136,6 +131,11 @@
 		gap: 18px;
 		max-width: 740px;
 		margin: 0 auto;
+
+		&--single {
+			grid-template-columns: minmax(0, 620px);
+			justify-content: center;
+		}
 	}
 
 	&__viewport {
@@ -170,6 +170,29 @@
 			background: #725584;
 			color: #fff;
 			transform: scale(1.05);
+		}
+	}
+
+	&__indicators {
+		display: flex;
+		justify-content: center;
+		gap: 9px;
+		margin-top: 18px;
+	}
+
+	&__indicator {
+		width: 9px;
+		height: 9px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(114, 85, 132, 0.35);
+		cursor: pointer;
+		transition: transform 180ms ease, background-color 180ms ease;
+
+		&--active {
+			background: #725584;
+			transform: scale(1.25);
 		}
 	}
 
@@ -218,6 +241,10 @@
 			margin: 0 auto;
 			border-top: 2px dotted rgba(114, 85, 132, 0.25);
 			border-left: 0;
+		}
+
+		&__step {
+			min-height: 0;
 		}
 
 		&__price {

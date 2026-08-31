@@ -62,16 +62,17 @@
       <span class="reiki-overview__divider-line"></span>
     </div>
 
-    <div class="reiki-overview__carousel" aria-label="Udtalelser">
-      <button
-        class="reiki-overview__carousel-button reiki-overview__carousel-button--previous"
-        type="button"
-        aria-label="Forrige udtalelse"
-        [disabled]="testimonials.length <= 1"
-        (click)="showPrevious()"
-      >
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-      </button>
+    <div class="reiki-overview__carousel" [class.reiki-overview__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+      @if (testimonials.length > 1) {
+        <button
+          class="reiki-overview__carousel-button"
+          type="button"
+          aria-label="Forrige udtalelse"
+          (click)="showPrevious()"
+        >
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+      }
 
       <div class="reiki-overview__viewport">
         <div
@@ -99,15 +100,24 @@
         </div>
       </div>
 
-      <button
-        class="reiki-overview__carousel-button reiki-overview__carousel-button--next"
-        type="button"
-        aria-label="Næste udtalelse"
-        [disabled]="testimonials.length <= 1"
-        (click)="showNext()"
-      >
-        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-      </button>
+      @if (testimonials.length > 1) {
+        <button
+          class="reiki-overview__carousel-button"
+          type="button"
+          aria-label="Næste udtalelse"
+          (click)="showNext()"
+        >
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      }
     </div>
+
+    @if (testimonials.length > 1) {
+      <div class="reiki-overview__indicators" aria-label="Vælg udtalelse">
+        @for (testimonial of testimonials; track testimonial.text; let index = $index) {
+          <button class="reiki-overview__indicator" type="button" [class.reiki-overview__indicator--active]="currentTestimonial() === index" [attr.aria-label]="'Gå til udtalelse ' + (index + 1)" [attr.aria-current]="currentTestimonial() === index ? 'true' : null" (click)="showTestimonial(index)"></button>
+        }
+      </div>
+    }
   </div>
 </section>

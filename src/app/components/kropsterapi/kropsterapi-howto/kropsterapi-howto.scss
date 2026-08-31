@@ -163,6 +163,11 @@
     grid-template-columns: 42px minmax(0, 620px) 42px;
     align-items: center;
     gap: 18px;
+
+    &--single {
+      grid-template-columns: minmax(0, 620px);
+      justify-content: center;
+    }
   }
 
   &__viewport {
@@ -195,6 +200,29 @@
       background: #af6d6a;
       color: #fff;
       transform: scale(1.05);
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  &__indicator {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(172, 104, 102, 0.35);
+    cursor: pointer;
+    transition: transform 180ms ease, background-color 180ms ease;
+
+    &--active {
+      background: #af6d6a;
+      transform: scale(1.25);
     }
   }
 

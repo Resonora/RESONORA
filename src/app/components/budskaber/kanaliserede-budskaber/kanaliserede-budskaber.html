@@ -6,36 +6,51 @@
 
     <div class="kanaliserede-budskaber__steps">
       <article class="kanaliserede-budskaber__step">
-        <div class="kanaliserede-budskaber__number" aria-hidden="true">1</div>
+        <div class="kanaliserede-budskaber__media" aria-hidden="true">
+          <div class="kanaliserede-budskaber__icon">
+            <img src="/budskaber-icon1.png" alt="" />
+          </div>
+        </div>
         <h3>Kontakt mig</h3>
-        <p>Udfyld formularen, ring eller kontakt mig på Instagram/Facebook.
-            Sammen taler vi om du har konkrete spørgsmål eller blot ønsker et generelt budskab.
+        <p>
+          Ræk ud til mig - så kan vi sammen tale om dine konkrete spørgsmål eller om du blot ønsker
+          et generelt budskab til din nuværende situation.
         </p>
       </article>
 
       <div class="kanaliserede-budskaber__separator" aria-hidden="true"></div>
 
       <article class="kanaliserede-budskaber__step">
-        <div class="kanaliserede-budskaber__number" aria-hidden="true">2</div>
+        <div class="kanaliserede-budskaber__media" aria-hidden="true">
+          <div class="kanaliserede-budskaber__icon">
+            <img src="/budskaber-icon2.png" alt="" />
+          </div>
+        </div>
         <h3>Jeg mærker ind</h3>
-        <p>Jeg stiller ind på din energi og de eventuelle spørgsmål, som du har.
-            Jeg besvarer 1 overordnet spørgsmål og 1-2 underspørgsmål i samme kanalisering.
+        <p>
+          Jeg stiller ind på din energi og de eventuelle spørgsmål, som du har. Jeg besvarer 1
+          overordnet spørgsmål og 1-2 underspørgsmål i samme kanalisering.
         </p>
       </article>
 
       <div class="kanaliserede-budskaber__separator" aria-hidden="true"></div>
 
       <article class="kanaliserede-budskaber__step">
-        <div class="kanaliserede-budskaber__number" aria-hidden="true">3</div>
+        <div class="kanaliserede-budskaber__media" aria-hidden="true">
+          <div class="kanaliserede-budskaber__icon">
+            <img src="/budskaber-icon3.png" alt="" />
+          </div>
+        </div>
         <h3>Du modtager dit budskab</h3>
-        <p>Efter 2-3 hverdage modtager du dit personlige budskab som ca. 1 sides PDF. 
-            Dette gælder også selvom du ikke har nogen konkrete spørgsmål.
+        <p>
+          Efter 2-3 hverdage modtager du dit personlige budskab som ca. 1 sides PDF. Dette gælder
+          også selvom du ikke har nogen konkrete spørgsmål.
         </p>
       </article>
     </div>
 
     <p class="kanaliserede-budskaber__price">Introduktionspris: 249,-</p>
-  <button class="kanaliserede-budskaber__button" type="button">Kontakt mig</button>
+  <p class="kanaliserede-budskaber__contact-note">Kontakt mig direkte for personligt budskab</p>
 
     <div class="kanaliserede-budskaber__divider" aria-hidden="true">
       <span></span>
@@ -43,15 +58,17 @@
       <span></span>
     </div>
 
-    <div class="kanaliserede-budskaber__carousel" aria-label="Udtalelser">
-      <button
-        class="kanaliserede-budskaber__carousel-button kanaliserede-budskaber__carousel-button--previous"
-        type="button"
-        aria-label="Forrige udtalelse"
-        (click)="showPrevious()"
-      >
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-      </button>
+    <div class="kanaliserede-budskaber__carousel" [class.kanaliserede-budskaber__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+      @if (testimonials.length > 1) {
+        <button
+          class="kanaliserede-budskaber__carousel-button"
+          type="button"
+          aria-label="Forrige udtalelse"
+          (click)="showPrevious()"
+        >
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+      }
 
       <div class="kanaliserede-budskaber__viewport">
         <div
@@ -66,14 +83,24 @@
         </div>
       </div>
 
-      <button
-        class="kanaliserede-budskaber__carousel-button kanaliserede-budskaber__carousel-button--next"
-        type="button"
-        aria-label="Næste udtalelse"
-        (click)="showNext()"
-      >
-        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-      </button>
+      @if (testimonials.length > 1) {
+        <button
+          class="kanaliserede-budskaber__carousel-button"
+          type="button"
+          aria-label="Næste udtalelse"
+          (click)="showNext()"
+        >
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      }
     </div>
+
+    @if (testimonials.length > 1) {
+      <div class="kanaliserede-budskaber__indicators" aria-label="Vælg udtalelse">
+        @for (testimonial of testimonials; track testimonial.text; let index = $index) {
+          <button class="kanaliserede-budskaber__indicator" type="button" [class.kanaliserede-budskaber__indicator--active]="currentTestimonial() === index" [attr.aria-label]="'Gå til udtalelse ' + (index + 1)" [attr.aria-current]="currentTestimonial() === index ? 'true' : null" (click)="showTestimonial(index)"></button>
+        }
+      </div>
+    }
   </div>
 </section>

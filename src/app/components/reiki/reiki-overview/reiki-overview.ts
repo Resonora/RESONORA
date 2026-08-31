@@ -29,6 +29,10 @@ export class ReikiOverview {
     this.currentTestimonial.update((index) => (index + 1) % this.testimonials.length);
   }
 
+  protected showTestimonial(index: number): void {
+    this.currentTestimonial.set(index);
+  }
+
   protected isExpanded(index: number): boolean {
     return this.expandedTestimonials().has(index);
   }

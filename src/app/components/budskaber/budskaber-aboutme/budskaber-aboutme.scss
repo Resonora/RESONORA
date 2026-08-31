@@ -1,0 +1,128 @@
+.budskaber-aboutme {
+	position: relative;
+	overflow: hidden;
+	padding: 60px 0 72px;
+	background: #f3f0f8;
+	color: #3d2d3d;
+
+	&__surface {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: url('/budskaber-aboutme-background.png') center / cover no-repeat;
+		opacity: 0.9;
+	}
+
+	&__inner {
+		position: relative;
+		width: min(1140px, calc(100% - 40px));
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	&__media {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__photo-card {
+		position: relative;
+		width: 100%;
+		max-width: 520px;
+		aspect-ratio: 0.9 / 1;
+		overflow: hidden;
+		border: 1px solid rgba(114, 85, 132, 0.16);
+		border-radius: 32px;
+		background: rgba(255, 255, 255, 0.72);
+		box-shadow: 0 28px 68px rgba(61, 45, 61, 0.14);
+	}
+
+	&__photo {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 60% center;
+	}
+
+	&__copy {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__title {
+		margin: 0 0 18px;
+		color: #725584;
+		font-family: 'Cormorant Garamond', serif;
+		font-size: clamp(36px, 4.2vw, 56px);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		line-height: 1.02;
+	}
+
+	&__heading-line {
+		display: flex;
+		align-items: center;
+		margin: 0 auto 26px;
+
+		span {
+			flex: 1;
+			height: 1px;
+			background: rgba(114, 85, 132, 0.22);
+		}
+	}
+
+	&__text-group {
+		display: grid;
+		gap: 18px;
+	}
+
+	&__text {
+		margin: 0;
+		color: #544454;
+		font-family: 'Manrope', sans-serif;
+		font-size: 16px;
+		line-height: 1.9;
+	}
+}
+
+@media (max-width: 980px) {
+	.budskaber-aboutme {
+		&__inner {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		&__media {
+			justify-content: center;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.budskaber-aboutme {
+		padding: 44px 0 48px;
+
+		&__photo-card {
+			width: 100%;
+			max-width: 100%;
+			aspect-ratio: auto;
+			min-height: 420px;
+		}
+
+		&__title {
+			font-size: clamp(28px, 8vw, 36px);
+		}
+
+		&__heading-line {
+			margin-bottom: 20px;
+		}
+
+		&__text {
+			font-size: 15px;
+		}
+	}
+}

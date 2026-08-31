@@ -33,4 +33,8 @@ export class KanaliseredeBudskaber {
   protected showNext(): void {
     this.currentTestimonial.update((index) => (index + 1) % this.testimonials.length);
   }
+
+  protected showTestimonial(index: number): void {
+    this.currentTestimonial.set(index);
+  }
 }
