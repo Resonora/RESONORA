@@ -4,10 +4,11 @@ import { Menubar } from "../../components/shared/menubar/menubar";
 import { Footer } from "../../components/shared/footer/footer";
 import { KropsterapiHowto } from "../../components/kropsterapi/kropsterapi-howto/kropsterapi-howto";
 import { KropsterapiAboutme } from "../../components/kropsterapi/kropsterapi-aboutme/kropsterapi-aboutme";
+import { KropsterapiThoughts } from "../../components/kropsterapi/kropsterapi-thoughts/kropsterapi-thoughts";
 
 @Component({
   selector: 'app-kropsterapi',
-  imports: [KropsterapiHeroStart, Menubar, Footer, KropsterapiHowto, KropsterapiAboutme],
+  imports: [KropsterapiHeroStart, Menubar, Footer, KropsterapiThoughts, KropsterapiHowto, KropsterapiAboutme],
   templateUrl: './kropsterapi.html',
   styleUrl: './kropsterapi.scss',
 })

@@ -31,15 +31,11 @@
     color: #283634;
   }
 
-  &__subtitle {
+  &__greeting {
+    display: block;
     margin: 6px 0 26px;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(20px, 2.6vw, 26px);
-    font-weight: 500;
-
-    color: #b6868a;
+    height: clamp(40px, 5vw, 56px);
+    width: auto;
   }
 
   &__text {

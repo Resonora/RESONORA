@@ -11,7 +11,6 @@
           </div>
         </div>
         <div class="howto-step__meta">
-          <div class="howto-step__number">1</div>
           <h3 class="howto-step__title">Vi lander sammen</h3>
           <p class="howto-step__text">
             Når du ankommer, starter vi med en samtale om hvor du er lige nu, og om der er noget, du særligt
@@ -20,6 +19,8 @@
         </div>
       </div>
 
+      <div class="kropsterapi-howto__separator" aria-hidden="true"></div>
+
       <div class="howto-step">
         <div class="howto-step__media" aria-hidden="true">
           <div class="howto-step__icon">
@@ -27,7 +28,6 @@
           </div>
         </div>
         <div class="howto-step__meta">
-          <div class="howto-step__number">2</div>
           <h3 class="howto-step__title">Vi lytter til kroppen</h3>
           <p class="howto-step__text">
             På briksen arbejder jeg med blide tryk og pulserende massage, som kan hjælpe kroppen med
@@ -36,6 +36,8 @@
         </div>
       </div>
 
+      <div class="kropsterapi-howto__separator" aria-hidden="true"></div>
+
       <div class="howto-step">
         <div class="howto-step__media" aria-hidden="true">
           <div class="howto-step__icon">
@@ -43,7 +45,6 @@
           </div>
         </div>
         <div class="howto-step__meta">
-          <div class="howto-step__number">3</div>
           <h3 class="howto-step__title">Afrundning</h3>
           <p class="howto-step__text">
             Mod slutningen af behandlingen får du tid til at lande helt i dig selv og mærke
@@ -53,6 +54,16 @@
       </div>
     </div>
 
+    <p class="kropsterapi-howto__price">1 times elev-behandling: 395,-</p>
+    <a
+      class="kropsterapi-howto__button"
+      data-cal-link="resonora/kropsterapi"
+      data-cal-namespace="kropsterapi"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
+    >
+      Book en behandling
+    </a>
+
     <div class="kropsterapi-howto__divider" aria-hidden="true">
       <span class="kropsterapi-howto__divider-line"></span>
       <img class="kropsterapi-howto__divider-icon" src="/resonora%20%23c5a198.png" alt="" />
@@ -60,34 +71,38 @@
     </div>
 
     <section class="kropsterapi-feedback" aria-labelledby="kropsterapi-feedback-title">
-      <div class="kropsterapi-feedback__grid">
-        <!-- Replace the text and name in each card with copied feedback. -->
-        <blockquote class="kropsterapi-feedback__card">
-          <p>
-            "Tak for en god oplevelse med kropsterapi, det føles ganske fantastisk afslappende.
-            Rebecka, det er nemt at føle sig tryg i dine hænder. Glæder mig allerede til næste gang
-            ❤️"
-          </p>
-          <cite>Pia</cite>
-        </blockquote>
+      <div class="kropsterapi-feedback__carousel" aria-label="Udtalelser">
+        <button
+          class="kropsterapi-feedback__carousel-button"
+          type="button"
+          aria-label="Forrige udtalelse"
+          (click)="showPrevious()"
+        >
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
 
-        <blockquote class="kropsterapi-feedback__card">
-          <p>
-            "Første gang jeg har prøvet kropsterapi og ikke sidste gang. Følte en indre ro og følte
-            at kroppen blev løsnet op. Rebecka skabte et rum der gav tryghed, hvor der var plads til
-            at give slip på følelserne. Det gav ro til krop og sjæl."
-          </p>
-          <cite>Jannie</cite>
-        </blockquote>
+        <div class="kropsterapi-feedback__viewport">
+          <div
+            class="kropsterapi-feedback__testimonials"
+            [style.transform]="'translateX(-' + currentTestimonial() * (100 / testimonials.length) + '%)'"
+          >
+            @for (testimonial of testimonials; track testimonial.author) {
+              <blockquote class="kropsterapi-feedback__card">
+                <p>"{{ testimonial.text }}"</p>
+                <cite>{{ testimonial.author }}</cite>
+              </blockquote>
+            }
+          </div>
+        </div>
 
-        <blockquote class="kropsterapi-feedback__card">
-          <p>
-            "Undervejs i min første kropsterapibehandling blev jeg overrasket over hvordan følelser
-            blev vækket til overfladen. Rebecka greb mig opmærksomt og omsorgsfuldt og førte mig
-            igennem en på alle måder god oplevelse og behandling."
-          </p>
-          <cite>Jesper</cite>
-        </blockquote>
+        <button
+          class="kropsterapi-feedback__carousel-button"
+          type="button"
+          aria-label="Næste udtalelse"
+          (click)="showNext()"
+        >
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </section>
   </div>

@@ -20,11 +20,51 @@
   &__steps {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
+    column-gap: 28px;
     align-items: start;
     margin-top: 18px;
     padding: 26px 10px 0;
+  }
+
+  &__separator {
+    align-self: stretch;
+    min-height: 112px;
+    border-left: 2px dotted rgba(172, 104, 102, 0.32);
+  }
+
+  &__price {
+    margin: 30px 0 0;
+    color: #ac6866;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 11px 27px;
+    border: 1px solid #af6d6a;
+    border-radius: 999px;
+    background: #af6d6a;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+      background: #c27b78;
+      transform: translateY(-2px);
+    }
   }
 
   &__divider {
@@ -89,20 +129,6 @@
     max-width: 240px;
   }
 
-  &__number {
-    width: 32px;
-    height: 32px;
-    margin: 8px auto 6px;
-    border-radius: 50%;
-    background: #af6d6a;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-family: 'Manrope', sans-serif;
-  }
-
   &__title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
@@ -120,7 +146,7 @@
 }
 
 .kropsterapi-feedback {
-  max-width: 1040px;
+  max-width: 740px;
   margin: 0 auto;
 
   &__title {
@@ -132,14 +158,49 @@
     letter-spacing: 0.02em;
   }
 
-  &__grid {
+  &__carousel {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    text-align: left;
+    grid-template-columns: 42px minmax(0, 620px) 42px;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__testimonials {
+    display: flex;
+    width: 300%;
+    transition: transform 260ms ease;
+  }
+
+  &__carousel-button {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid rgba(172, 104, 102, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 247, 244, 0.78);
+    color: #ac6866;
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+      background: #af6d6a;
+      color: #fff;
+      transform: scale(1.05);
+    }
   }
 
   &__card {
+    flex: 0 0 33.333%;
+    width: 33.333%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -177,8 +238,12 @@
 @media (max-width: 980px) {
   .kropsterapi-howto {
     &__steps {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 26px;
+    }
+
+    &__separator {
+      display: none;
     }
   }
 }
@@ -198,14 +263,32 @@
   }
 
   .kropsterapi-feedback {
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
+    &__carousel {
+      display: block;
+    }
+
+    &__carousel-button {
+      display: none;
+    }
+
+    &__viewport {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__testimonials {
+      transition: none;
     }
 
     &__card {
       min-height: 0;
       padding: 22px 20px 18px;
+      scroll-snap-align: center;
     }
   }
 
