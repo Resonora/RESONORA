@@ -1,0 +1,27 @@
+<section class="om-mig-timeline" aria-labelledby="om-mig-timeline-title">
+	<div class="om-mig-timeline__inner">
+		<div class="om-mig-timeline__heading">
+			<p class="om-mig-timeline__eyebrow">Min rejse</p>
+			<h2 id="om-mig-timeline-title">Et liv i bevægelse</h2>
+			<p>Små og store øjeblikke, som har været med til at forme mig.</p>
+		</div>
+
+		<ol class="om-mig-timeline__events">
+			@for (event of events; track event.year; let isOdd = $odd) {
+				<li class="om-mig-timeline__event" [class.om-mig-timeline__event--right]="isOdd">
+					<article class="om-mig-timeline__card">
+						<div class="om-mig-timeline__image" aria-hidden="true">
+							<span>{{ event.image }}</span>
+						</div>
+						<div class="om-mig-timeline__content">
+							<p class="om-mig-timeline__year">{{ event.year }}</p>
+							<h3>{{ event.title }}</h3>
+							<p>{{ event.text }}</p>
+						</div>
+					</article>
+					<span class="om-mig-timeline__marker" aria-hidden="true"></span>
+				</li>
+			}
+		</ol>
+	</div>
+</section>
