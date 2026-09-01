@@ -47,23 +47,30 @@
     margin-left: 2px;
   }
 
-  .menubar__brand {
+  .menubar__desktop-logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #283634;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    line-height: 1;
+    width: 58px;
+    height: 58px;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid rgba(84, 68, 63, 0.14);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(20, 20, 20, 0.05);
     text-decoration: none;
 
-    &:hover,
-    &:focus-visible {
-      color: #796659;
-      outline: none;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
+  }
+
+  .menubar__brand {
+    display: none;
   }
 
   .menubar__link {
@@ -179,12 +186,28 @@
       display: none;
     }
 
+    .menubar__desktop-logo {
+      display: none;
+    }
+
     .menubar__brand {
+      display: inline-flex;
       grid-column: 1;
       justify-self: start;
       margin: 0;
+      color: #283634;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
+      font-weight: 500;
       letter-spacing: 0.16em;
+      line-height: 1;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: #796659;
+        outline: none;
+      }
     }
 
     .menubar__burger {
@@ -224,7 +247,7 @@
     .menubar__mobile.open {
       max-height: 390px;
       opacity: 1;
-      padding: 8px 16px 16px;
+      padding: 12px 20px 20px;
       pointer-events: auto;
       transform: scaleY(1) translateY(0);
     }
@@ -232,7 +255,7 @@
     .menubar__mobile-link {
       color: #54453f;
       text-decoration: none;
-      padding: 15px 2px;
+      padding: 17px 4px;
       border-bottom: 1px solid rgba(84, 68, 63, 0.1);
       font-family: 'Manrope', sans-serif;
       font-weight: 600;

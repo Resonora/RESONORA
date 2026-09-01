@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
@@ -5,7 +6,7 @@ import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-menubar',
-  imports: [RouterLink],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './menubar.html',
   styleUrl: './menubar.scss',
   host: {
