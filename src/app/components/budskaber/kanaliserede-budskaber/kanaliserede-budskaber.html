@@ -94,6 +94,8 @@
       class="kanaliserede-budskaber__carousel"
       [class.kanaliserede-budskaber__carousel--single]="testimonials.length <= 1"
       aria-label="Udtalelser"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
     >
       @if (testimonials.length > 1) {
         <button

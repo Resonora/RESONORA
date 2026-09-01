@@ -74,6 +74,8 @@
         class="kropsterapi-feedback__carousel"
         [class.kropsterapi-feedback__carousel--single]="testimonials.length <= 1"
         aria-label="Udtalelser"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd($event)"
       >
         @if (testimonials.length > 1) {
           <button

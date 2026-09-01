@@ -9,6 +9,8 @@ import { Component, computed, signal } from '@angular/core';
 export class ReikiOverview {
   protected readonly currentTestimonial = signal(0);
   protected readonly isAnimating = signal(false);
+  private touchStartX?: number;
+  private readonly swipeThreshold = 45;
   private readonly expandedTestimonials = signal<ReadonlySet<number>>(new Set());
 
   // Placeholder testimonial; add more entries here as they become available.
@@ -38,6 +40,30 @@ export class ReikiOverview {
     }
 
     this.changeTestimonial(index);
+  }
+
+  protected onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0]?.clientX;
+  }
+
+  protected onTouchEnd(event: TouchEvent): void {
+    if (this.touchStartX === undefined) {
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0]?.clientX;
+    const distance = touchEndX === undefined ? 0 : touchEndX - this.touchStartX;
+    this.touchStartX = undefined;
+
+    if (Math.abs(distance) < this.swipeThreshold) {
+      return;
+    }
+
+    if (distance > 0) {
+      this.showPrevious();
+    } else {
+      this.showNext();
+    }
   }
 
   protected isExpanded(index: number): boolean {

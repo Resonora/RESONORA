@@ -62,7 +62,13 @@
       <span class="reiki-overview__divider-line"></span>
     </div>
 
-    <div class="reiki-overview__carousel" [class.reiki-overview__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+    <div
+      class="reiki-overview__carousel"
+      [class.reiki-overview__carousel--single]="testimonials.length <= 1"
+      aria-label="Udtalelser"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
       @if (testimonials.length > 1) {
         <button
           class="reiki-overview__carousel-button"
@@ -77,6 +83,7 @@
       <blockquote
         class="reiki-overview__testimonial"
         [class.reiki-overview__testimonial--animating]="isAnimating()"
+        [class.reiki-overview__testimonial--expanded]="isExpanded(currentTestimonial())"
         aria-live="polite"
       >
         <p

@@ -155,6 +155,7 @@
     gap: 18px;
     max-width: 740px;
     margin: 0 auto;
+    touch-action: pan-y;
 
     &--single {
       grid-template-columns: minmax(0, 620px);
@@ -217,7 +218,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 145px;
+    height: 240px;
     box-sizing: border-box;
     margin: 0;
     padding: 24px 22px 20px;
@@ -231,6 +232,12 @@
 
     &--animating {
       opacity: 0;
+    }
+
+    &--expanded {
+      height: auto;
+      justify-content: flex-start;
+      overflow: visible;
     }
 
   }
@@ -322,6 +329,11 @@
       width: 34px;
       height: 34px;
       font-size: 1.1rem;
+    }
+
+    &__testimonial {
+      height: auto;
+      min-height: 0;
     }
 
   }
