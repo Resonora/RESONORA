@@ -2,16 +2,7 @@
 	position: relative;
 	overflow: hidden;
 	padding: 60px 0 72px;
-	//background: #f3f0f8;
 	color: #3d2d3d;
-
-	&__surface {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		// background: url('/budskaber-aboutme-background.png') center / cover no-repeat;
-		opacity: 0.9;
-	}
 
 	&__inner {
 		position: relative;
