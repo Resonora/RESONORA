@@ -76,23 +76,8 @@
     letter-spacing: 0.01em;
   }
 
-  &__text-price {
-    margin: 24px 0 6px;
-    max-width: 640px;
-    color: #2d3d35;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    line-height: 1.5;
-    letter-spacing: 0.03em;
-  }
-
-  &__text-note {
-    margin-top: 0.35rem;
-    color: #68786d;
-    font-size: 0.82rem;
-    font-style: italic;
-    line-height: 1.6;
+  &__text + &__text {
+    margin-top: 18px;
   }
 
   &__actions {
@@ -151,9 +136,6 @@
       gap: 2rem;
     }
 
-    &__panel-inner {
-      min-height: 340px;
-    }
   }
 }
 
@@ -199,14 +181,8 @@
       margin: 24px 0 20px;
     }
 
-    &__text,
-    &__panel-copy {
+    &__text {
       font-size: 0.98rem;
-    }
-
-    &__panel-inner {
-      padding: 28px 24px;
-      min-height: auto;
     }
   }
 }
