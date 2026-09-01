@@ -22,17 +22,6 @@
     max-width: 590px;
   }
 
-  &__title {
-    margin-top: 30px;
-    margin-bottom: 0px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 6vw, 64px);
-    font-weight: 500;
-    line-height: 1.05;
-
-    color: #283634;
-  }
-
   &__greeting {
     display: block;
     margin: 40px 0 26px;
@@ -75,7 +64,7 @@
   .om-mig-hero {
     &__introduction {
       grid-template-columns: 1fr;
-      gap: 42px;
+      gap: 20px;
       text-align: center;
     }
 
@@ -83,10 +72,22 @@
       margin: 0 auto;
     }
 
+    &__greeting {
+      height: 64px;
+      margin: 10px auto 26px;
+    }
+
     &__image {
       position: static;
       width: min(320px, 100%);
+      margin-top: 20px;
       justify-self: center;
+      order: -1;
+      border-radius: 18px;
+
+      img {
+        border-radius: 13px;
+      }
     }
   }
 }
@@ -97,6 +98,10 @@
 
     &__text {
       font-size: 14px;
+    }
+
+    &__greeting {
+      height: 58px;
     }
 
     &__image {
