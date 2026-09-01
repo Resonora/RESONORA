@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, computed, signal, OnDestroy } from '@angular/core';
 
 interface FeedbackItem {
@@ -10,7 +9,7 @@ interface FeedbackItem {
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './feedback.html',
   styleUrl: './feedback.scss',
 })

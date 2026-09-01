@@ -2,10 +2,6 @@
   position: relative;
   padding: 90px 24px;
   background-color: #fef3ea;
-  //background-image: url("/redbagground.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
   font-family: 'Manrope', sans-serif;
   color: #4d4541;
@@ -43,18 +39,8 @@
     max-width: 520px;
   }
 
-  &__eyebrow {
-    margin: 0 0 18px;
-
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.32em;
-    color: #9b7779;
-  }
-
   h2 {
-    margin: 0;
+    margin: 0 0 24px;
 
     font-family: 'Cormorant Garamond', serif;
     font-size: 48px;
@@ -63,13 +49,6 @@
     letter-spacing: 0.04em;
 
     color: #5a4742;
-  }
-
-  &__heart {
-    display: block;
-    width: 42px;
-    height: auto;
-    margin: 22px 0 24px;
   }
 
   &__signature {
@@ -127,11 +106,6 @@
 
     &__content {
       margin: 0 auto;
-    }
-
-    &__heart {
-      margin-left: auto;
-      margin-right: auto;
     }
 
     &__signature {

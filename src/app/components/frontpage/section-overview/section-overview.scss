@@ -73,48 +73,6 @@ a {
     }
   }
 
-  &__content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-    align-items: center;
-    gap: clamp(24px, 4vw, 40px);
-  }
-
-  &__copy {
-    //max-width: 430px;
-
-    h3 {
-      margin: 0 0 10px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(22px, 2.2vw, 28px);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: 0.04em;
-      color: #6f7460;
-    }
-
-    p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.65;
-      color: #5f544f;
-    }
-  }
-
-  &__image-wrap {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  &__image {
-    width: min(100%, 360px);
-    max-height: 400px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
-    border: 1px solid rgba(91, 75, 67, 0.16);
-    box-shadow: 0 14px 34px rgba(68, 55, 47, 0.08);
-  }
 }
 
 @media (max-width: 760px) {
@@ -134,19 +92,6 @@ a {
       }
     }
 
-    &__content {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    &__image-wrap {
-      justify-content: center;
-    }
-
-    &__image {
-      width: min(100%, 320px);
-      max-height: 320px;
-    }
   }
 }
 
@@ -187,32 +132,24 @@ a {
   }
 
   &--green {
-    //background-image: url('/greenbg.jpg');
-
     .offer-card__button {
       background: #7f8771;
     }
   }
 
   &--red {
-    //background-image: url('/redbg.jpg');
-
     .offer-card__button {
       background: #b9858a;
     }
   }
 
   &--purple {
-    //background-image: url('/purplebg.jpg');
-
     .offer-card__button {
       background: #8a7893;
     }
   }
 
   &--blue {
-    // background-image: url('/yellowbg.jpg');
-
     .offer-card__button {
       background: #6e8e94;
     }
@@ -293,20 +230,3 @@ a {
   }
 }
 
-@media (max-width: 600px) {
-  .offer-section {
-    padding: 30px 18px 44px;
-
-    &__intro p {
-      font-size: 13px;
-
-      br {
-        display: none;
-      }
-    }
-
-    &__handwritten {
-      width: min(320px, 86vw);
-    }
-  }
-}

@@ -15,8 +15,6 @@ export class HeroStart implements AfterViewInit {
   ngAfterViewInit(): void {
     const hero = this.el.nativeElement.querySelector('.hero') || document.querySelector('.hero');
     if (hero) {
-      hero.style.setProperty('--hero-sym', '0px');
-      hero.style.setProperty('--hero-divider', '1px');
       hero.style.setProperty('--hero-cta', '0px');
       hero.style.setProperty('--hero-bg', '0px');
       hero.style.setProperty('--hero-title', '0px');
@@ -32,8 +30,6 @@ export class HeroStart implements AfterViewInit {
       const hero = this.el.nativeElement.querySelector('.hero') || document.querySelector('.hero');
       if (hero) {
         // parallax offsets for layered motion
-        hero.style.setProperty('--hero-sym', `${-sc * 0.04}px`);
-        hero.style.setProperty('--hero-divider', `${-sc * 0.02}px`);
         hero.style.setProperty('--hero-cta', `${sc * 0.02}px`);
         // background moves slower (small positive), title moves slightly opposite for depth
         hero.style.setProperty('--hero-bg', `${sc * 0.02}px`);
