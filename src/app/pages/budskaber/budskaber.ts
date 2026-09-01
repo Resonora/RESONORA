@@ -5,11 +5,12 @@ import { BudskaberThoughts } from '../../components/budskaber/budskaber-thoughts
 import { Footer } from '../../components/shared/footer/footer';
 import { KanaliseredeBudskaber } from '../../components/budskaber/kanaliserede-budskaber/kanaliserede-budskaber';
 import { BudskaberAboutme } from '../../components/budskaber/budskaber-aboutme/budskaber-aboutme';
+import { BudskaberQa } from '../../components/budskaber/budskaber-qa/budskaber-qa';
 
 
 @Component({
   selector: 'app-budskaber',
-  imports: [Menubar, BudskaberHeroStart, BudskaberThoughts, KanaliseredeBudskaber, BudskaberAboutme, Footer],
+  imports: [Menubar, BudskaberHeroStart, BudskaberThoughts, KanaliseredeBudskaber, BudskaberQa, BudskaberAboutme, Footer],
   templateUrl: './budskaber.html',
   styleUrls: ['./budskaber.scss'],
 })

@@ -91,6 +91,34 @@
     font-style: italic;
     line-height: 1.6;
   }
+
+    &__contact-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    &__contact-link {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(114, 85, 132, 0.35);
+      border-radius: 50%;
+      color: #725584;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+
+      &:hover,
+      &:focus-visible {
+        background: #725584;
+        color: #fff;
+        outline: none;
+        transform: translateY(-2px);
+      }
+    }
 }
 
 @media (max-width: 960px) {

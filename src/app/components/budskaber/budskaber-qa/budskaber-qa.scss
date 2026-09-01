@@ -1,0 +1,136 @@
+.budskaber-qa {
+	padding: 56px 20px;
+	background: #f3f0f8 url('/budskaber-qa-background.png') center / cover no-repeat;
+	color: #544454;
+
+	&__inner {
+		width: min(920px, calc(100% - 40px));
+		margin: 0 auto;
+	}
+
+	&__heading {
+		max-width: 650px;
+		margin: 0 auto 42px;
+		text-align: center;
+
+		h2 {
+			margin: 0;
+			color: #725584;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: clamp(30px, 3.7vw, 42px);
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			line-height: 1.1;
+		}
+
+		> p:last-child {
+			margin: 18px 0 0;
+			font-family: 'Manrope', sans-serif;
+			font-size: 15px;
+			line-height: 1.75;
+		}
+	}
+
+	&__eyebrow {
+		margin: 0 0 10px;
+		color: #8b5c9e;
+		font-family: 'Manrope', sans-serif;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	&__guidance {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: clamp(42px, 8vw, 100px);
+	}
+
+	&__column {
+		padding: 32px 0 34px;
+
+		+ &__column {
+			padding-left: clamp(28px, 5vw, 64px);
+		}
+
+		h3 {
+			margin: 12px 0 17px;
+			color: #443546;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: clamp(23px, 2.6vw, 29px);
+			font-weight: 500;
+			line-height: 1.2;
+		}
+
+		ul {
+			display: grid;
+			gap: 12px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			position: relative;
+			padding-left: 20px;
+			font-family: 'Manrope', sans-serif;
+			font-size: 14px;
+			line-height: 1.6;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0.62em;
+				left: 0;
+				width: 7px;
+				height: 7px;
+				border: 1px solid #8b5c9e;
+				border-radius: 50%;
+				background: rgba(243, 240, 248, 0.85);
+			}
+		}
+	}
+
+	&__closing-note {
+		grid-column: 1 / -1;
+		margin: 0 0 8px;
+		color: #544454;
+		font-family: 'Manrope', sans-serif;
+		font-size: 14px;
+		line-height: 1.6;
+		text-align: center;
+	}
+
+	&__symbol {
+		color: #725584;
+		font-size: 18px;
+		line-height: 1;
+
+		&--open {
+			color: #8b5c9e;
+		}
+	}
+}
+
+@media (max-width: 680px) {
+	.budskaber-qa {
+		padding: 44px 16px;
+
+		&__heading {
+			margin-bottom: 32px;
+		}
+
+		&__guidance {
+			grid-template-columns: 1fr;
+		}
+
+		&__column {
+			padding: 28px 0;
+
+			+ &__column {
+				padding-left: 0;
+			}
+		}
+	}
+}

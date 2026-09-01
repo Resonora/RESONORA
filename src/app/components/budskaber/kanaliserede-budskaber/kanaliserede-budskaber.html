@@ -28,8 +28,9 @@
         </div>
         <h3>Jeg mærker ind</h3>
         <p>
-          Jeg stiller ind på din energi og de eventuelle spørgsmål, som du har. Jeg besvarer 1
-          overordnet spørgsmål og 1-2 underspørgsmål i samme kanalisering.
+          Jeg stiller ind på din energi og videreformidler de eventuelle spørgsmål, som du har.
+          Beskederne skriver jeg herefter ned. Jeg formidler svar til 1 overordnet spørgsmål og 1-2
+          underspørgsmål i samme kanalisering.
         </p>
       </article>
 
@@ -44,13 +45,44 @@
         <h3>Du modtager dit budskab</h3>
         <p>
           Efter 2-3 hverdage modtager du dit personlige budskab som ca. 1 sides PDF. Dette gælder
-          også selvom du ikke har nogen konkrete spørgsmål.
+          også selvom du ikke har nogen konkrete spørgsmål. I nogle tilfælde trækker jeg også et
+          kort baseret på din situation og inkluderer analysen i budskabet.
         </p>
       </article>
     </div>
 
     <p class="kanaliserede-budskaber__price">Introduktionspris: 249,-</p>
-  <p class="kanaliserede-budskaber__contact-note">Kontakt mig direkte for personligt budskab</p>
+    <p class="kanaliserede-budskaber__contact-note">Kontakt mig direkte for personligt budskab:</p>
+    <div class="kanaliserede-budskaber__contact-links" aria-label="Kontaktmuligheder">
+      <a
+        class="kanaliserede-budskaber__contact-link"
+        href="mailto:kontakt@resonora.dk"
+        aria-label="Skriv en e-mail"
+        title="Skriv en e-mail"
+      >
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+      <a
+        class="kanaliserede-budskaber__contact-link"
+        href="https://www.instagram.com/rebecka.resonora/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Besøg Instagram"
+        title="Besøg Instagram"
+      >
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a
+        class="kanaliserede-budskaber__contact-link"
+        href="https://www.facebook.com/profile.php?id=61593253107545"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Besøg Facebook"
+        title="Besøg Facebook"
+      >
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+      </a>
+    </div>
 
     <div class="kanaliserede-budskaber__divider" aria-hidden="true">
       <span></span>
@@ -58,7 +90,11 @@
       <span></span>
     </div>
 
-    <div class="kanaliserede-budskaber__carousel" [class.kanaliserede-budskaber__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+    <div
+      class="kanaliserede-budskaber__carousel"
+      [class.kanaliserede-budskaber__carousel--single]="testimonials.length <= 1"
+      aria-label="Udtalelser"
+    >
       @if (testimonials.length > 1) {
         <button
           class="kanaliserede-budskaber__carousel-button"
@@ -98,7 +134,14 @@
     @if (testimonials.length > 1) {
       <div class="kanaliserede-budskaber__indicators" aria-label="Vælg udtalelse">
         @for (testimonial of testimonials; track testimonial.text; let index = $index) {
-          <button class="kanaliserede-budskaber__indicator" type="button" [class.kanaliserede-budskaber__indicator--active]="currentTestimonial() === index" [attr.aria-label]="'Gå til udtalelse ' + (index + 1)" [attr.aria-current]="currentTestimonial() === index ? 'true' : null" (click)="showTestimonial(index)"></button>
+          <button
+            class="kanaliserede-budskaber__indicator"
+            type="button"
+            [class.kanaliserede-budskaber__indicator--active]="currentTestimonial() === index"
+            [attr.aria-label]="'Gå til udtalelse ' + (index + 1)"
+            [attr.aria-current]="currentTestimonial() === index ? 'true' : null"
+            (click)="showTestimonial(index)"
+          ></button>
         }
       </div>
     }
