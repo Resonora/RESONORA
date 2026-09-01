@@ -79,11 +79,6 @@
   background: rgba(106, 88, 77, 0.18);
 }
 
-.kropsterapi-aboutme__heading-icon {
-  font-size: 18px;
-  color: #c5a198;
-}
-
 .kropsterapi-aboutme__text-group {
   display: grid;
   gap: 18px;
@@ -98,7 +93,7 @@
   color: #5c5048;
 }
 
-.kropsterapi-hero__button {
+.kropsterapi-aboutme__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -125,10 +120,6 @@
       cursor: pointer;
     }
   }
-
-.kropsterapi-aboutme__note span {
-  color: #c7a39e;
-}
 
 @media (max-width: 980px) {
   .kropsterapi-aboutme__inner {

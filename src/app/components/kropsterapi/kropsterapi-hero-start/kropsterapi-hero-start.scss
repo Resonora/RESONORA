@@ -130,10 +130,6 @@
       grid-template-columns: 1fr;
       gap: 2rem;
     }
-
-    &__panel-inner {
-      min-height: 340px;
-    }
   }
 }
 
@@ -175,14 +171,8 @@
       margin: 24px 0 20px;
     }
 
-    &__text,
-    &__panel-copy {
+    &__text {
       font-size: 0.98rem;
-    }
-
-    &__panel-inner {
-      padding: 28px 24px;
-      min-height: auto;
     }
   }
 }
