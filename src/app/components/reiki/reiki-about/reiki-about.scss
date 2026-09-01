@@ -60,7 +60,7 @@
 	}
 
 	&__lineage {
-		grid-column: 1;
+		margin-top: 32px;
 	}
 
 	&__timeline-title {
@@ -163,19 +163,13 @@
 		}
 
 		&__intro {
-			grid-column: auto;
-			position: static;
-			text-align: center;
-
-			h2 {
-				margin-right: auto;
-				margin-left: auto;
-			}
+			display: contents;
 		}
 
 		&__content {
 			grid-column: auto;
 			grid-row: auto;
+			order: 1;
 		}
 
 		&__timeline {
@@ -185,6 +179,8 @@
 
 		&__lineage {
 			grid-column: auto;
+			grid-row: auto;
+			order: 2;
 			margin-top: -16px;
 		}
 
@@ -197,6 +193,16 @@
 			font-weight: 500;
 			line-height: 1.2;
 			text-align: center;
+		}
+
+		&__eyebrow,
+		h2 {
+			text-align: center;
+		}
+
+		h2 {
+			margin-right: auto;
+			margin-left: auto;
 		}
 
 		&__image {

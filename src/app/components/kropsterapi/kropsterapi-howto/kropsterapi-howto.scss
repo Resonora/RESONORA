@@ -151,7 +151,8 @@
 
   &__carousel {
     display: grid;
-    grid-template-columns: 42px minmax(0, 620px) 42px;
+    width: min(100%, 740px);
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
     align-items: center;
     gap: 18px;
 
@@ -159,17 +160,6 @@
       grid-template-columns: minmax(0, 620px);
       justify-content: center;
     }
-  }
-
-  &__viewport {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__testimonials {
-    display: flex;
-    width: 300%;
-    transition: transform 260ms ease;
   }
 
   &__carousel-button {
@@ -218,8 +208,6 @@
   }
 
   &__card {
-    flex: 0 0 33.333%;
-    width: 33.333%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -230,7 +218,14 @@
     border: 1px solid rgba(172, 104, 102, 0.18);
     border-radius: 16px;
     background: rgba(255, 247, 244, 0.78);
-    box-shadow: 0 12px 28px rgba(84, 68, 63, 0.06);
+    overflow: hidden;
+    isolation: isolate;
+    backface-visibility: hidden;
+    transition: opacity 180ms ease;
+
+    &--animating {
+      opacity: 0;
+    }
 
     p {
       margin: 0;
@@ -292,24 +287,9 @@
       display: none;
     }
 
-    &__viewport {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-
-    &__testimonials {
-      transition: none;
-    }
-
     &__card {
       min-height: 0;
       padding: 22px 20px 18px;
-      scroll-snap-align: center;
     }
   }
 

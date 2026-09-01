@@ -8,6 +8,7 @@ import { Component, computed, signal } from '@angular/core';
 })
 export class ReikiOverview {
   protected readonly currentTestimonial = signal(0);
+  protected readonly isAnimating = signal(false);
   private readonly expandedTestimonials = signal<ReadonlySet<number>>(new Set());
 
   // Placeholder testimonial; add more entries here as they become available.
@@ -17,20 +18,26 @@ export class ReikiOverview {
     },
   ];
 
-  protected readonly slideWidthPercent = computed(() => 100 / this.testimonials.length);
+  protected readonly selectedTestimonial = computed(
+    () => this.testimonials[this.currentTestimonial()],
+  );
 
   protected showPrevious(): void {
-    this.currentTestimonial.update((index) =>
-      index === 0 ? this.testimonials.length - 1 : index - 1,
-    );
+    const currentIndex = this.currentTestimonial();
+    const nextIndex = currentIndex === 0 ? this.testimonials.length - 1 : currentIndex - 1;
+    this.changeTestimonial(nextIndex);
   }
 
   protected showNext(): void {
-    this.currentTestimonial.update((index) => (index + 1) % this.testimonials.length);
+    this.changeTestimonial((this.currentTestimonial() + 1) % this.testimonials.length);
   }
 
   protected showTestimonial(index: number): void {
-    this.currentTestimonial.set(index);
+    if (index === this.currentTestimonial()) {
+      return;
+    }
+
+    this.changeTestimonial(index);
   }
 
   protected isExpanded(index: number): boolean {
@@ -43,5 +50,18 @@ export class ReikiOverview {
       next.has(index) ? next.delete(index) : next.add(index);
       return next;
     });
+  }
+
+  private changeTestimonial(nextIndex: number): void {
+    if (this.isAnimating()) {
+      return;
+    }
+
+    this.isAnimating.set(true);
+
+    window.setTimeout(() => {
+      this.currentTestimonial.set(nextIndex);
+      this.isAnimating.set(false);
+    }, 180);
   }
 }

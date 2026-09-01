@@ -86,21 +86,14 @@
           </button>
         }
 
-        <div class="kropsterapi-feedback__viewport">
-          <div
-            class="kropsterapi-feedback__testimonials"
-            [style.transform]="
-              'translateX(-' + currentTestimonial() * (100 / testimonials.length) + '%)'
-            "
-          >
-            @for (testimonial of testimonials; track testimonial.author) {
-              <blockquote class="kropsterapi-feedback__card">
-                <p>"{{ testimonial.text }}"</p>
-                <cite>{{ testimonial.author }}</cite>
-              </blockquote>
-            }
-          </div>
-        </div>
+        <blockquote
+          class="kropsterapi-feedback__card"
+          [class.kropsterapi-feedback__card--animating]="isAnimating()"
+          aria-live="polite"
+        >
+          <p>"{{ selectedTestimonial().text }}"</p>
+          <cite>{{ selectedTestimonial().author }}</cite>
+        </blockquote>
 
         @if (testimonials.length > 1) {
           <button

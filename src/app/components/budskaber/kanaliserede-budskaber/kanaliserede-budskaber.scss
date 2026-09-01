@@ -155,7 +155,8 @@
 
 	&__carousel {
 		display: grid;
-		grid-template-columns: 42px minmax(0, 620px) 42px;
+		width: min(100%, 740px);
+		grid-template-columns: 42px minmax(0, 1fr) 42px;
 		align-items: center;
 		gap: 18px;
 		max-width: 740px;
@@ -165,17 +166,6 @@
 			grid-template-columns: minmax(0, 620px);
 			justify-content: center;
 		}
-	}
-
-	&__viewport {
-		overflow: hidden;
-		width: 100%;
-	}
-
-	&__testimonials {
-		display: flex;
-		width: 400%;
-		transition: transform 260ms ease;
 	}
 
 	&__carousel-button {
@@ -226,8 +216,6 @@
 	}
 
 	&__testimonial {
-		flex: 0 0 25%;
-		width: 25%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -238,7 +226,14 @@
 		border: 1px solid rgba(114, 85, 132, 0.18);
 		border-radius: 16px;
 		background: rgba(255, 252, 250, 0.72);
-		box-shadow: 0 12px 28px rgba(61, 45, 61, 0.06);
+		overflow: hidden;
+		isolation: isolate;
+		backface-visibility: hidden;
+		transition: opacity 180ms ease;
+
+		&--animating {
+			opacity: 0;
+		}
 
 		p {
 			margin: 0;
@@ -285,11 +280,6 @@
 			margin: 28px auto 24px;
 		}
 
-		&__testimonials {
-			width: 400%;
-			transition: none;
-		}
-
 		&__carousel {
 			display: block;
 			max-width: none;
@@ -299,19 +289,7 @@
 			display: none;
 		}
 
-		&__viewport {
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			scrollbar-width: none;
-			overscroll-behavior-x: contain;
-
-			&::-webkit-scrollbar {
-				display: none;
-			}
-		}
-
 		&__testimonial {
-			scroll-snap-align: center;
 			min-height: 0;
 			padding: 22px 20px 18px;
 		}

@@ -149,7 +149,8 @@
 
   &__carousel {
     display: grid;
-    grid-template-columns: 42px minmax(0, 620px) 42px;
+    width: min(100%, 740px);
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
     align-items: center;
     gap: 18px;
     max-width: 740px;
@@ -159,16 +160,6 @@
       grid-template-columns: minmax(0, 620px);
       justify-content: center;
     }
-  }
-
-  &__viewport {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__testimonials {
-    display: flex;
-    transition: transform 260ms ease;
   }
 
   &__carousel-button {
@@ -223,7 +214,6 @@
   }
 
   &__testimonial {
-    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,7 +224,15 @@
     border: 1px solid rgba(91, 141, 184, 0.18);
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.72);
-    box-shadow: 0 12px 28px rgba(53, 67, 74, 0.06);
+    overflow: hidden;
+    isolation: isolate;
+    backface-visibility: hidden;
+    transition: opacity 180ms ease;
+
+    &--animating {
+      opacity: 0;
+    }
+
   }
 
   &__testimonial-text {

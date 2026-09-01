@@ -106,18 +106,13 @@
         </button>
       }
 
-      <div class="kanaliserede-budskaber__viewport">
-        <div
-          class="kanaliserede-budskaber__testimonials"
-          [style.transform]="'translateX(-' + currentTestimonial() * 25 + '%)'"
-        >
-          @for (testimonial of testimonials; track testimonial.text) {
-            <blockquote class="kanaliserede-budskaber__testimonial">
-              <p>"{{ testimonial.text }}"</p>
-            </blockquote>
-          }
-        </div>
-      </div>
+      <blockquote
+        class="kanaliserede-budskaber__testimonial"
+        [class.kanaliserede-budskaber__testimonial--animating]="isAnimating()"
+        aria-live="polite"
+      >
+        <p>"{{ selectedTestimonial().text }}"</p>
+      </blockquote>
 
       @if (testimonials.length > 1) {
         <button

@@ -74,31 +74,25 @@
         </button>
       }
 
-      <div class="reiki-overview__viewport">
-        <div
-          class="reiki-overview__testimonials"
-          [style.width.%]="testimonials.length * 100"
-          [style.transform]="'translateX(-' + currentTestimonial() * slideWidthPercent() + '%)'"
+      <blockquote
+        class="reiki-overview__testimonial"
+        [class.reiki-overview__testimonial--animating]="isAnimating()"
+        aria-live="polite"
+      >
+        <p
+          class="reiki-overview__testimonial-text"
+          [class.reiki-overview__testimonial-text--clamped]="!isExpanded(currentTestimonial())"
         >
-          @for (testimonial of testimonials; track testimonial.text; let i = $index) {
-            <blockquote class="reiki-overview__testimonial" [style.width.%]="slideWidthPercent()">
-              <p
-                class="reiki-overview__testimonial-text"
-                [class.reiki-overview__testimonial-text--clamped]="!isExpanded(i)"
-              >
-                "{{ testimonial.text }}"
-              </p>
-              <button
-                class="reiki-overview__testimonial-toggle"
-                type="button"
-                (click)="toggleExpanded(i)"
-              >
-                {{ isExpanded(i) ? 'Læs mindre' : 'Læs mere' }}
-              </button>
-            </blockquote>
-          }
-        </div>
-      </div>
+          "{{ selectedTestimonial().text }}"
+        </p>
+        <button
+          class="reiki-overview__testimonial-toggle"
+          type="button"
+          (click)="toggleExpanded(currentTestimonial())"
+        >
+          {{ isExpanded(currentTestimonial()) ? 'Læs mindre' : 'Læs mere' }}
+        </button>
+      </blockquote>
 
       @if (testimonials.length > 1) {
         <button

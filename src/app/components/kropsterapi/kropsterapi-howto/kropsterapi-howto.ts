@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-kropsterapi-howto',
@@ -8,6 +8,7 @@ import { Component, signal } from '@angular/core';
 })
 export class KropsterapiHowto {
   protected readonly currentTestimonial = signal(0);
+  protected readonly isAnimating = signal(false);
 
   protected readonly testimonials = [
     {
@@ -25,16 +26,37 @@ export class KropsterapiHowto {
   ];
 
   protected showPrevious(): void {
-    this.currentTestimonial.update((index) =>
-      index === 0 ? this.testimonials.length - 1 : index - 1,
-    );
+    const currentIndex = this.currentTestimonial();
+    const nextIndex = currentIndex === 0 ? this.testimonials.length - 1 : currentIndex - 1;
+    this.changeTestimonial(nextIndex);
   }
 
   protected showNext(): void {
-    this.currentTestimonial.update((index) => (index + 1) % this.testimonials.length);
+    this.changeTestimonial((this.currentTestimonial() + 1) % this.testimonials.length);
   }
 
   protected showTestimonial(index: number): void {
-    this.currentTestimonial.set(index);
+    if (index === this.currentTestimonial()) {
+      return;
+    }
+
+    this.changeTestimonial(index);
+  }
+
+  protected readonly selectedTestimonial = computed(
+    () => this.testimonials[this.currentTestimonial()],
+  );
+
+  private changeTestimonial(nextIndex: number): void {
+    if (this.isAnimating()) {
+      return;
+    }
+
+    this.isAnimating.set(true);
+
+    window.setTimeout(() => {
+      this.currentTestimonial.set(nextIndex);
+      this.isAnimating.set(false);
+    }, 180);
   }
 }
