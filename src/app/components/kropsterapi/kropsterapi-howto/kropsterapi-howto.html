@@ -13,8 +13,8 @@
         <div class="howto-step__meta">
           <h3 class="howto-step__title">Vi lander sammen</h3>
           <p class="howto-step__text">
-            Når du ankommer, starter vi med en samtale om hvor du er lige nu, og om der er noget, du særligt
-            har brug for. Alle følelser er velkomne, og jeg møder dig der, hvor du er.
+            Når du ankommer, starter vi med en samtale om hvor du er lige nu, og om der er noget, du
+            særligt har brug for. Alle følelser er velkomne, og jeg møder dig der, hvor du er.
           </p>
         </div>
       </div>
@@ -31,7 +31,7 @@
           <h3 class="howto-step__title">Vi lytter til kroppen</h3>
           <p class="howto-step__text">
             På briksen arbejder jeg med blide tryk og pulserende massage, som kan hjælpe kroppen med
-            at give slip på eventuelle spændinger.
+            at give slip på eventuelle spændinger. Undervejs taler vi om det, du mærker, og det, der kommer op.
           </p>
         </div>
       </div>
@@ -47,8 +47,8 @@
         <div class="howto-step__meta">
           <h3 class="howto-step__title">Afrundning</h3>
           <p class="howto-step__text">
-            Mod slutningen af behandlingen får du tid til at lande helt i dig selv og mærke
-            hvordan kroppen føles. Vi runder af med en kort samtale.
+            Mod slutningen af behandlingen får du tid til at lande helt i dig selv, og vi runder af med en kort samtale.
+            Drik gerne masser af vand de efterfølgende timer for at hjælpe kroppen med at skylle affaldsstoffer ud.
           </p>
         </div>
       </div>
@@ -71,7 +71,11 @@
     </div>
 
     <section class="kropsterapi-feedback" aria-labelledby="kropsterapi-feedback-title">
-      <div class="kropsterapi-feedback__carousel" [class.kropsterapi-feedback__carousel--single]="testimonials.length <= 1" aria-label="Udtalelser">
+      <div
+        class="kropsterapi-feedback__carousel"
+        [class.kropsterapi-feedback__carousel--single]="testimonials.length <= 1"
+        aria-label="Udtalelser"
+      >
         @if (testimonials.length > 1) {
           <button
             class="kropsterapi-feedback__carousel-button"
@@ -86,7 +90,9 @@
         <div class="kropsterapi-feedback__viewport">
           <div
             class="kropsterapi-feedback__testimonials"
-            [style.transform]="'translateX(-' + currentTestimonial() * (100 / testimonials.length) + '%)'"
+            [style.transform]="
+              'translateX(-' + currentTestimonial() * (100 / testimonials.length) + '%)'
+            "
           >
             @for (testimonial of testimonials; track testimonial.author) {
               <blockquote class="kropsterapi-feedback__card">
@@ -112,7 +118,14 @@
       @if (testimonials.length > 1) {
         <div class="kropsterapi-feedback__indicators" aria-label="Vælg udtalelse">
           @for (testimonial of testimonials; track testimonial.author; let index = $index) {
-            <button class="kropsterapi-feedback__indicator" type="button" [class.kropsterapi-feedback__indicator--active]="currentTestimonial() === index" [attr.aria-label]="'Gå til udtalelse ' + (index + 1)" [attr.aria-current]="currentTestimonial() === index ? 'true' : null" (click)="showTestimonial(index)"></button>
+            <button
+              class="kropsterapi-feedback__indicator"
+              type="button"
+              [class.kropsterapi-feedback__indicator--active]="currentTestimonial() === index"
+              [attr.aria-label]="'Gå til udtalelse ' + (index + 1)"
+              [attr.aria-current]="currentTestimonial() === index ? 'true' : null"
+              (click)="showTestimonial(index)"
+            ></button>
           }
         </div>
       }

@@ -7,79 +7,161 @@
 	color: #43545e;
 
 	&__inner {
-		width: min(820px, calc(100% - 40px));
+		width: min(940px, calc(100% - 40px));
 		margin: 0 auto;
+	}
+
+	&__article {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 26px;
+		grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+		gap: clamp(42px, 7vw, 88px);
+		align-items: start;
+		padding: clamp(36px, 6vw, 68px) clamp(28px, 6vw, 72px);
+		border-top: 1px solid rgba(91, 141, 184, 0.28);
+		border-bottom: 1px solid rgba(91, 141, 184, 0.28);
 	}
 
-	&__card {
-		position: relative;
-		min-height: 420px;
-		box-sizing: border-box;
-		padding: 40px clamp(32px, 5vw, 64px);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		border: 1px solid rgba(91, 141, 184, 0.12);
-		border-radius: 16px;
-		background: url('/reiki-about-card2.png') center / cover no-repeat;
-		box-shadow: 0 6px 22px rgba(63, 83, 95, 0.05);
-		text-align: center;
-		overflow: hidden;
-		transition: transform 200ms ease, box-shadow 200ms ease;
-
-		&:hover {
-			transform: translateY(-4px);
-			box-shadow: 0 8px 32px rgba(63, 83, 95, 0.1);
-		}
+	&__intro {
+		position: sticky;
+		top: 100px;
+		text-align: left;
 	}
 
-	&__card--first {
-		background: url('/reiki-about-card1.png') center / cover no-repeat;
+	&__image {
+		display: block;
+		width: min(136px, 58%);
+		height: auto;
+		margin: 0 0 24px;
 	}
 
-	&__card--second {
-		background: url('/reiki-about-card2.png') center / cover no-repeat;
-	}
-
-	&__card-content {
-		display: flex;
-		width: 100%;
-		flex-direction: column;
-		align-items: center;
-		gap: 20px;
-
-		p {
-			margin: 0;
-			font-family: 'Manrope', sans-serif;
-			font-size: 14px;
-			line-height: 1.7;
-			opacity: 0.9;
-		}
-	}
-
-	&__icon {
-		display: grid;
-		width: 80px;
-		height: 80px;
-		margin: 0;
-		place-items: center;
-		border: 1px solid rgba(91, 141, 184, 0.28);
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.7);
+	&__eyebrow {
+		margin: 0 0 10px;
 		color: #6b9fc9;
-		font-size: 1.75rem;
+		font-family: 'Manrope', sans-serif;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
 	}
 
-	&__card h2 {
+	h2,
+	h3 {
 		margin: 0;
 		color: #5b8db8;
 		font-family: 'Cormorant Garamond', serif;
-		font-size: clamp(24px, 2.4vw, 30px);
 		font-weight: 500;
 		line-height: 1.2;
+	}
+
+	h2 {
+		max-width: 280px;
+		font-size: clamp(30px, 3vw, 42px);
+		letter-spacing: 0.02em;
+	}
+
+	&__timeline {
+		position: relative;
+		margin: 32px 0 0;
+		padding: 0 0 0 24px;
+		list-style: none;
+		text-align: left;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 8px;
+			bottom: 8px;
+			left: 5px;
+			width: 1px;
+			background: rgba(91, 141, 184, 0.38);
+		}
+
+		li {
+			position: relative;
+			padding-bottom: 11px;
+			color: #527da1;
+			font-family: 'Manrope', sans-serif;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			line-height: 1.3;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 4px;
+				left: -24px;
+				width: 9px;
+				height: 9px;
+				box-sizing: border-box;
+				border: 2px solid #6b9fc9;
+				border-radius: 50%;
+				background: #f8f5f0;
+			}
+
+			&:last-child {
+				padding-bottom: 0;
+				color: #43545e;
+				font-weight: 700;
+
+				&::before {
+					border-color: #5b8db8;
+					background: #5b8db8;
+					box-shadow: 0 0 0 4px rgba(107, 159, 201, 0.16);
+				}
+			}
+		}
+	}
+
+	&__content {
+		p {
+			margin: 0;
+			font-family: 'Manrope', sans-serif;
+			font-size: 15px;
+			line-height: 1.85;
+			opacity: 0.92;
+		}
+
+		p + p {
+			margin-top: 22px;
+		}
+
+		p:first-child {
+			max-width: 580px;
+			color: #527da1;
+			font-size: clamp(18px, 2vw, 21px);
+			font-weight: 500;
+			line-height: 1.58;
+		}
+	}
+
+	&__lead {
+		color: #527da1;
+		font-size: clamp(19px, 2vw, 23px) !important;
+		font-weight: 500;
+		line-height: 1.5 !important;
+	}
+
+	&__divider {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		margin: 30px 0 24px;
+		color: #6b9fc9;
+		font-size: 16px;
+
+		&::before,
+		&::after {
+			content: '';
+			height: 1px;
+			flex: 1;
+			background: rgba(91, 141, 184, 0.25);
+		}
+	}
+
+	h3 {
+		margin-bottom: 12px;
+		font-size: clamp(26px, 2.6vw, 34px);
 	}
 }
 
@@ -89,23 +171,30 @@
 		background-size: auto 100%;
 
 		&__inner {
+			width: min(100%, 620px);
+		}
+
+		&__article {
 			grid-template-columns: 1fr;
-			gap: 16px;
+			gap: 32px;
+			padding: 40px 24px;
 		}
 
-		&__card {
-			min-height: 0;
-			padding: 40px 28px;
+		&__intro {
+			position: static;
+			text-align: center;
 		}
 
-		&__card-content {
-			gap: 18px;
+		&__timeline {
+			width: min(290px, 100%);
+			margin-right: auto;
+			margin-left: auto;
 		}
 
-		&__icon {
-			width: 64px;
-			height: 64px;
-			font-size: 1.45rem;
+		&__image {
+			width: min(140px, 55%);
+			margin-right: auto;
+			margin-left: auto;
 		}
 	}
 }
