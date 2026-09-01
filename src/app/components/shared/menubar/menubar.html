@@ -1,4 +1,4 @@
-<header class="menubar" [class.scrolled]="isScrolled" [class.open]="isOpen">
+<header class="menubar" [class.scrolled]="isScrolled()" [class.open]="isOpen()">
 	<div class="menubar__inner">
 		<div class="menubar__group menubar__group--left">
 			<a class="menubar__link" routerLink="/kropsterapi">Kropsterapi</a>
@@ -8,30 +8,15 @@
 			<a class="menubar__link" routerLink="/reiki">Reiki</a>
 			<span class="menubar__sep" aria-hidden="true"></span>
 			<a class="menubar__link" routerLink="/budskaber">Budskaber</a>
-		
-			<!-- <div class="menubar__dropdown">
-				<button class="menubar__dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-					Healing & vejledning
-				</button>
-				<div class="menubar__dropdown-menu">
-					<a class="menubar__dropdown-link" routerLink="/reiki">Healing</a>
-					<a class="menubar__dropdown-link" routerLink="/intuitivvejledning">Intuitiv vejledning</a>
-				</div>
-			</div> -->
 		</div>
 
-		<a class="menubar__logo" routerLink="/" aria-label="Gå til toppen">
-			<img class="menubar__logo-image" src="/logo3.png" alt="Resonora logo" />
-		</a>
+		<a class="menubar__brand" routerLink="/" aria-label="Gå til forsiden">RESONORA</a>
 
 		<div class="menubar__group menubar__group--right">
-			
-			
 			<a class="menubar__link" routerLink="/rebecka">Lær mig at kende</a>
 			<span class="menubar__sep" aria-hidden="true"></span>
 			<a
 				class="menubar__book-button"
-				type="button"
 				data-cal-link="resonora"
 				data-cal-namespace="resonora"
 				data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
@@ -40,22 +25,31 @@
 			</a>
 		</div>
 
-		<button class="menubar__burger" (click)="toggle()" aria-label="Åben menu" [attr.aria-expanded]="isOpen">
-			<i class="fas fa-bars"></i>
+		<button
+			class="menubar__burger"
+			type="button"
+			(click)="toggle()"
+			[attr.aria-label]="isOpen() ? 'Luk menu' : 'Åbn menu'"
+			[attr.aria-expanded]="isOpen()"
+			aria-controls="mobile-navigation"
+		>
+			<span aria-hidden="true"></span>
 		</button>
 
-		<div class="menubar__mobile" [class.open]="isOpen">
+		<nav
+			class="menubar__mobile"
+			id="mobile-navigation"
+			aria-label="Hovednavigation"
+			[class.open]="isOpen()"
+			[attr.inert]="isOpen() ? null : ''"
+		>
 			<a class="menubar__mobile-link" routerLink="/kropsterapi" (click)="close()">Kropsterapi</a>
 			<a class="menubar__mobile-link" routerLink="/lyd" (click)="close()">Lydrejser</a>
-			<div class="menubar__mobile-group">
-				<span class="menubar__mobile-link menubar__mobile-toggle">Healing & vejledning</span>
-				<a class="menubar__mobile-link menubar__mobile-subitem" routerLink="/reiki" (click)="close()">Healing</a>
-				<a class="menubar__mobile-link menubar__mobile-subitem" routerLink="/budskaber" (click)="close()">Intuitiv vejledning</a>
-			</div>
-			<a class="menubar__mobile-link" routerLink="/rebecka" (click)="close()">Om Resonora</a>
+			<a class="menubar__mobile-link" routerLink="/reiki" (click)="close()">Reiki</a>
+			<a class="menubar__mobile-link" routerLink="/budskaber" (click)="close()">Budskaber</a>
+			<a class="menubar__mobile-link" routerLink="/rebecka" (click)="close()">Lær mig at kende</a>
 			<a
 				class="menubar__mobile-book-button"
-				type="button"
 				data-cal-link="resonora"
 				data-cal-namespace="resonora"
 				data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true", "theme":"light"}'
@@ -63,6 +57,6 @@
 			>
 				Book mig
 			</a>
-		</div>
+		</nav>
 	</div>
 </header>

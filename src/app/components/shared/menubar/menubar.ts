@@ -1,20 +1,23 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-menubar',
-  standalone: true,
   imports: [RouterLink],
   templateUrl: './menubar.html',
   styleUrl: './menubar.scss',
+  host: {
+    '(window:scroll)': 'onWindowScroll()',
+  },
 })
 export class Menubar {
   private readonly router = inject(Router);
-  bars = 'fa-solid fa-bars';
-  isOpen = false;
-  isScrolled = false;
-  isHome = false;
+  private readonly destroyRef = inject(DestroyRef);
+  readonly isOpen = signal(false);
+  readonly isScrolled = signal(false);
+  private isHome = false;
   private scrollY = 0;
 
   constructor() {
@@ -22,7 +25,10 @@ export class Menubar {
     this.updateScrolledState();
 
     this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe((event) => {
         this.isHome = event.urlAfterRedirects === '/' || event.urlAfterRedirects === '';
         this.updateScrolledState();
@@ -30,21 +36,22 @@ export class Menubar {
   }
 
   toggle(): void {
-    this.isOpen = !this.isOpen;
+    this.isOpen.update((isOpen) => !isOpen);
   }
 
   close(): void {
-    this.isOpen = false;
+    this.isOpen.set(false);
   }
 
-  @HostListener('window:scroll', [])
   onWindowScroll(): void {
     this.scrollY = window.scrollY || window.pageYOffset || 0;
     this.updateScrolledState();
-    if (this.isScrolled) this.isOpen = false; // close mobile menu when scrolling
+    if (this.isScrolled()) {
+      this.close();
+    }
   }
 
   private updateScrolledState(): void {
-    this.isScrolled = !this.isHome || this.scrollY > 40;
+    this.isScrolled.set(!this.isHome || this.scrollY > 40);
   }
 }
