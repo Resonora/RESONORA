@@ -22,6 +22,7 @@
 	}
 
 	&__intro {
+		grid-column: 1;
 		position: sticky;
 		top: 100px;
 		text-align: left;
@@ -44,8 +45,7 @@
 		text-transform: uppercase;
 	}
 
-	h2,
-	h3 {
+	h2 {
 		margin: 0;
 		color: #5b8db8;
 		font-family: 'Cormorant Garamond', serif;
@@ -57,6 +57,14 @@
 		max-width: 280px;
 		font-size: clamp(30px, 3vw, 42px);
 		letter-spacing: 0.02em;
+	}
+
+	&__lineage {
+		grid-column: 1;
+	}
+
+	&__timeline-title {
+		display: none;
 	}
 
 	&__timeline {
@@ -114,6 +122,8 @@
 	}
 
 	&__content {
+		grid-column: 2;
+		grid-row: 1 / span 2;
 		p {
 			margin: 0;
 			font-family: 'Manrope', sans-serif;
@@ -135,37 +145,9 @@
 		}
 	}
 
-	&__lead {
-		color: #527da1;
-		font-size: clamp(19px, 2vw, 23px) !important;
-		font-weight: 500;
-		line-height: 1.5 !important;
-	}
-
-	&__divider {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-		margin: 30px 0 24px;
-		color: #6b9fc9;
-		font-size: 16px;
-
-		&::before,
-		&::after {
-			content: '';
-			height: 1px;
-			flex: 1;
-			background: rgba(91, 141, 184, 0.25);
-		}
-	}
-
-	h3 {
-		margin-bottom: 12px;
-		font-size: clamp(26px, 2.6vw, 34px);
-	}
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
 	.reiki-about {
 		padding: 30px 16px;
 		background-size: auto 100%;
@@ -181,14 +163,40 @@
 		}
 
 		&__intro {
+			grid-column: auto;
 			position: static;
 			text-align: center;
+
+			h2 {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+
+		&__content {
+			grid-column: auto;
+			grid-row: auto;
 		}
 
 		&__timeline {
 			width: min(290px, 100%);
-			margin-right: auto;
-			margin-left: auto;
+			margin: 12px auto 0;
+		}
+
+		&__lineage {
+			grid-column: auto;
+			margin-top: -16px;
+		}
+
+		&__timeline-title {
+			display: block;
+			margin: 0 auto;
+			color: #5b8db8;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 1.2;
+			text-align: center;
 		}
 
 		&__image {

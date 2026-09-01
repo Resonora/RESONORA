@@ -2,10 +2,6 @@
   position: relative;
   overflow: hidden;
   padding: 38px 20px 44px;
-  //background: #fbf8f4;
-  // background-image: url('/reiki-about-background.png');
-  // background-position: center;
-  background-size: cover;
   color: #35434a;
 
   &__inner {
@@ -26,13 +22,6 @@
       letter-spacing: 0.02em;
     }
 
-    p {
-      margin: 0;
-      color: #52636b;
-      font-family: 'Manrope', sans-serif;
-      font-size: 16px;
-      line-height: 1.9;
-    }
   }
 
   &__features {
@@ -318,12 +307,6 @@
       }
     }
 
-    &__icon {
-      width: 75px;
-      height: 75px;
-      font-size: 2.4rem;
-    }
-
     &__divider {
       margin: 24px auto 26px;
     }
@@ -331,6 +314,10 @@
     &__carousel {
       grid-template-columns: 34px minmax(0, 1fr) 34px;
       gap: 10px;
+
+      &--single {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     &__carousel-button {
