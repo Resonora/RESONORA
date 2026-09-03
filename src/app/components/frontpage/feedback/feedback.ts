@@ -1,4 +1,4 @@
-import { Component, computed, signal, OnDestroy } from '@angular/core';
+import { Component, computed, signal, OnDestroy, afterNextRender } from '@angular/core';
 
 interface FeedbackItem {
   text: string;
@@ -28,7 +28,7 @@ export class Feedback implements OnDestroy {
     {
       text: 'Jeg var fuldstændig blown away over det budskab du fik igennem til mig. Det hele ramte så meget plet i hvad jeg står i, og hvad der foregår inde i mig. At du absolut intet kendskab havde til mig og min historie gjorde at jeg blev virkelig rørt over hvor præcis det var. Jeg er glad for at det lige netop var mig der var budskab til, og jeg tager det med mig og i min videre proces. Tusind tak 🙏🪷',
       name: 'HEIDI',
-      role: 'MODTAGER AF BUDSKAB',
+      role: 'CLAIRVOYANCE MODTAGER',
     },
     {
       text: 'Første gang jeg har prøvet kropsterapi og ikke sidste gang. Følte en indre ro og følte at kroppen blev løsnet op. Rebecka skabte et rum der gav tryghed, hvor der var plads til at give slip på følelserne. Det gav ro til krop og sjæl.',
@@ -41,9 +41,9 @@ export class Feedback implements OnDestroy {
       role: 'LYDREJSE DELTAGER',
     },
     {
-      text: 'Uden at kende noget til mig, og uden nogen former for information fra mig, rammer Rebecka plet på flere af de store emner, som fylder meget hos mig pt. Der blev formidlet kærlige budskaber og idéer til, hvordan jeg kan komme videre fra det sted jeg er lige nu. Rebecka har helt sikkert evner indenfor det clavoyante.',
+      text: 'Uden at kende noget til mig, og uden nogen former for information fra mig, rammer Rebecka plet på flere af de store emner, som fylder meget hos mig pt. Der blev formidlet kærlige budskaber og idéer til, hvordan jeg kan komme videre fra det sted jeg er lige nu. Rebecka har helt sikkert evner indenfor det clairvoyante.',
       name: 'MAIKEN',
-      role: 'MODTAGER AF BUDSKAB',
+      role: 'CLAIRVOYANCE MODTAGER',
     }
   ]);
 
@@ -61,7 +61,7 @@ export class Feedback implements OnDestroy {
   );
 
   constructor() {
-    this.startAutoSlide();
+    afterNextRender(() => this.startAutoSlide());
   }
 
   private startAutoSlide() {

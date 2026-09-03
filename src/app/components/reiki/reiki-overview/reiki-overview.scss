@@ -259,6 +259,18 @@
     }
   }
 
+  &__testimonial cite {
+    margin-top: 10px;
+    color: #5b8db8;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
   &__testimonial-toggle {
     align-self: center;
     margin-top: 14px;

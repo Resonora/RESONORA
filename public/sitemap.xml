@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://resonora.dk/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://resonora.dk/kropsterapi</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resonora.dk/lyd</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resonora.dk/reiki</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resonora.dk/budskaber</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resonora.dk/rebecka</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
