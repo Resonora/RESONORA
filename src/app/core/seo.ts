@@ -8,11 +8,14 @@ export interface SeoData {
   /** relative path e.g. '/lyd' */
   path: string;
   image?: string;
+  /** one or more schema.org objects to emit as JSON-LD for this page */
+  jsonLd?: object | object[];
 }
 
 const SITE_NAME = 'Resonora';
 const SITE_URL = 'https://resonora.dk';
 const DEFAULT_IMAGE = `${SITE_URL}/logo3.png`;
+const JSON_LD_ATTR = 'data-seo-jsonld';
 
 @Injectable({ providedIn: 'root' })
 export class Seo {
@@ -40,6 +43,7 @@ export class Seo {
     this.meta.updateTag({ name: 'twitter:image', content: image });
 
     this.updateCanonical(url);
+    this.updateJsonLd(data.jsonLd);
   }
 
   private updateCanonical(url: string): void {
@@ -50,5 +54,18 @@ export class Seo {
       this.document.head.appendChild(link);
     }
     link.setAttribute('href', url);
+  }
+
+  private updateJsonLd(jsonLd: object | object[] | undefined): void {
+    this.document.querySelectorAll(`script[${JSON_LD_ATTR}]`).forEach((el) => el.remove());
+
+    const items = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+    for (const item of items) {
+      const script = this.document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute(JSON_LD_ATTR, '');
+      script.textContent = JSON.stringify(item);
+      this.document.head.appendChild(script);
+    }
   }
 }

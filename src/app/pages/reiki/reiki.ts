@@ -21,6 +21,27 @@ export class Reiki {
       description:
         'Reiki healing hos Rebecka fremmer grounding og energibalance. Book en session og oplev healende ro for krop og sind.',
       path: '/reiki',
+      image: 'https://resonora.dk/reiki-hero-background.webp',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Reiki healing',
+        name: 'Reiki healing hos Resonora',
+        description:
+          'Reiki healing hos Rebecka fremmer grounding og energibalance.',
+        provider: {
+          '@type': 'LocalBusiness',
+          name: 'Resonora',
+          url: 'https://resonora.dk',
+        },
+        areaServed: 'Odense',
+        url: 'https://resonora.dk/reiki',
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'DKK',
+          price: '395',
+        },
+      },
     });
   }
 }

@@ -11,6 +11,6 @@ export const routes: Routes = [
     { path: 'kropsterapi', component: Kropsterapi },
     { path: 'lyd', component: Lyd },
     { path: 'reiki', component: Reiki },
-    { path: 'budskaber', component: Budskaber },
+    // { path: 'budskaber', component: Budskaber },
     { path: 'rebecka', component: OmMig}
 ];

@@ -25,11 +25,11 @@ export class Feedback implements OnDestroy {
       name: 'PIA',
       role: 'KROPSTERAPI KLIENT',
     },
-    {
-      text: 'Jeg var fuldstændig blown away over det budskab du fik igennem til mig. Det hele ramte så meget plet i hvad jeg står i, og hvad der foregår inde i mig. At du absolut intet kendskab havde til mig og min historie gjorde at jeg blev virkelig rørt over hvor præcis det var. Jeg er glad for at det lige netop var mig der var budskab til, og jeg tager det med mig og i min videre proces. Tusind tak 🙏🪷',
-      name: 'HEIDI',
-      role: 'CLAIRVOYANCE MODTAGER',
-    },
+    // {
+    //   text: 'Jeg var fuldstændig blown away over det budskab du fik igennem til mig. Det hele ramte så meget plet i hvad jeg står i, og hvad der foregår inde i mig. At du absolut intet kendskab havde til mig og min historie gjorde at jeg blev virkelig rørt over hvor præcis det var. Jeg er glad for at det lige netop var mig der var budskab til, og jeg tager det med mig og i min videre proces. Tusind tak 🙏🪷',
+    //   name: 'HEIDI',
+    //   role: 'CLAIRVOYANCE MODTAGER',
+    // },
     {
       text: 'Første gang jeg har prøvet kropsterapi og ikke sidste gang. Følte en indre ro og følte at kroppen blev løsnet op. Rebecka skabte et rum der gav tryghed, hvor der var plads til at give slip på følelserne. Det gav ro til krop og sjæl.',
       name: 'JANNIE',
@@ -41,10 +41,15 @@ export class Feedback implements OnDestroy {
       role: 'LYDREJSE DELTAGER',
     },
     {
-      text: 'Uden at kende noget til mig, og uden nogen former for information fra mig, rammer Rebecka plet på flere af de store emner, som fylder meget hos mig pt. Der blev formidlet kærlige budskaber og idéer til, hvordan jeg kan komme videre fra det sted jeg er lige nu. Rebecka har helt sikkert evner indenfor det clairvoyante.',
-      name: 'MAIKEN',
-      role: 'CLAIRVOYANCE MODTAGER',
-    }
+      text: 'Jeg oplevede en virkelig god effekt efter behandlingen. Ikke kun lige bagefter, men også i dagene efter, hvor jeg kunne mærke, at det fortsat arbejdede i mig. Jeg oplevede mere ro, en anden lethed og en følelse af, at noget havde flyttet sig og fået lov til at falde mere på plads. For mig har det været mere end blot en behagelig behandling. Det har været en oplevelse af at blive mødt som et helt menneske, med både krop, tanker, følelser og alt det, der kan være svært helt at sætte ord på.',
+      name: 'KIA',
+      role: 'REIKI MODTAGER',
+    },
+    // {
+    //   text: 'Uden at kende noget til mig, og uden nogen former for information fra mig, rammer Rebecka plet på flere af de store emner, som fylder meget hos mig pt. Der blev formidlet kærlige budskaber og idéer til, hvordan jeg kan komme videre fra det sted jeg er lige nu. Rebecka har helt sikkert evner indenfor det clairvoyante.',
+    //   name: 'MAIKEN',
+    //   role: 'CLAIRVOYANCE MODTAGER',
+    // }
   ]);
 
   protected readonly currentIndex = signal(0);
@@ -56,9 +61,7 @@ export class Feedback implements OnDestroy {
   private readonly autoSlideDelay = 8000;
   private readonly swipeThreshold = 45;
 
-  protected readonly selectedFeedback = computed(
-    () => this.feedbacks()[this.currentIndex()]
-  );
+  protected readonly selectedFeedback = computed(() => this.feedbacks()[this.currentIndex()]);
 
   constructor() {
     afterNextRender(() => this.startAutoSlide());
@@ -147,4 +150,3 @@ export class Feedback implements OnDestroy {
     this.stopAutoSlide();
   }
 }
-

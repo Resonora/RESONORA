@@ -20,6 +20,27 @@ export class Kropsterapi {
       description:
         'Kropsterapi hos Rebecka hjælper dig med at slippe spændinger og finde ro i kroppen gennem blide tryk, pulserende massage og samtale.',
       path: '/kropsterapi',
+      image: 'https://resonora.dk/kropsterapi-hero-background2.webp',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Kropsterapi',
+        name: 'Kropsterapi hos Resonora',
+        description:
+          'Kropsterapi hos Rebecka hjælper dig med at slippe spændinger og finde ro i kroppen gennem blide tryk og pulserende massage.',
+        provider: {
+          '@type': 'LocalBusiness',
+          name: 'Resonora',
+          url: 'https://resonora.dk',
+        },
+        areaServed: 'Odense',
+        url: 'https://resonora.dk/kropsterapi',
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'DKK',
+          price: '395',
+        },
+      },
     });
   }
 }

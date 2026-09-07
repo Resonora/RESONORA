@@ -19,7 +19,7 @@ export class StartHer {
     inject(Seo).update({
       title: 'Rum for indre resonans',
       description:
-        'Resonora er Rebeckas rum for lydrejser, reiki healing, kropsterapi og personlige budskaber. Find ro, nærvær og indre balance.',
+        'Resonora er Rebeckas rum for lydrejser, reiki healing og kropsterapi. Find ro, nærvær og indre balance.',
       path: '/',
     });
   }

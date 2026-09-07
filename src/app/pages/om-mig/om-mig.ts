@@ -15,8 +15,9 @@ export class OmMig {
     inject(Seo).update({
       title: 'Om mig',
       description:
-        'Mød Rebecka bag Resonora og læs om rejsen bag lydrejser, reiki, kropsterapi og personlige budskaber.',
+        'Mød Rebecka bag Resonora og læs om rejsen bag lydrejser, reiki og kropsterapi.',
       path: '/rebecka',
+      image: 'https://resonora.dk/om-mig-hero-background.webp',
     });
   }
 }

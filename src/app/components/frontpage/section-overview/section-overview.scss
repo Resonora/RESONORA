@@ -97,17 +97,17 @@ a {
 
 .offer-cards {
   display: grid;
-  grid-template-columns: repeat(4, minmax(255px, 1fr));
+  grid-template-columns: repeat(3, minmax(255px, 1fr));
   justify-content: center;
-  justify-items: center;
-  gap: 36px;
+  justify-items: stretch;
+  gap: 24px;
   margin: 0 auto 40px;
   width: min(1080px, 100%);
 }
 
 .offer-card {
   width: 100%;
-  max-width: 255px;
+  max-width: 340px;
   min-height: 330px;
   box-sizing: border-box;
   background-color: #fff7f4;
