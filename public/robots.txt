@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /budskaber
-
-Sitemap: https://resonora.dk/sitemap.xml
+Disallow: /
