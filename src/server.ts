@@ -1,27 +1,48 @@
-import { createNodeRequestHandler, isMainModule } from '@angular/ssr/node';
+import {
+  AngularNodeAppEngine,
+  createNodeRequestHandler,
+  isMainModule,
+  writeResponseToNodeResponse,
+} from '@angular/ssr/node';
 import express from 'express';
+import { join } from 'node:path';
+
+const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
+const angularApp = new AngularNodeAppEngine();
+
+/**
+ * Example Express Rest API endpoints can be defined here.
+ * Uncomment and define endpoints as necessary.
+ *
+ * Example:
+ * ```ts
+ * app.get('/api/{*splat}', (req, res) => {
+ *   // Handle API request
+ * });
+ * ```
+ */
+
+/**
+ * Serve static files from /browser
+ */
+app.use(
+  express.static(browserDistFolder, {
+    maxAge: '1y',
+    index: false,
+    redirect: false,
+  }),
+);
+
+/**
+ * Handle all other requests by rendering the Angular application.
+ */
 app.use((req, res, next) => {
-  res
-    .status(410)
-    .set('X-Robots-Tag', 'noindex, nofollow, noarchive')
-    .type('html')
-    .send(`<!doctype html>
-<html lang="da">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <title>Resonora er sat på pause</title>
-    <style>
-      body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #f6eee7; color: #342f2a; font-family: Georgia, serif; }
-      main { padding: 2rem; text-align: center; }
-      h1 { margin: 0; font-size: clamp(2rem, 6vw, 4rem); font-weight: 400; }
-    </style>
-  </head>
-  <body><main><h1>Resonora er sat på pause for nu...</h1></main></body>
-</html>`);
+  angularApp
+    .handle(req)
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
+    .catch(next);
 });
 
 /**
